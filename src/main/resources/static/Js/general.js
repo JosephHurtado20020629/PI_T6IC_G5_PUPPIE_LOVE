@@ -26,11 +26,11 @@ carrito.addEventListener("click", mostrar);
 productos();
 //Abrir y cerrar el Buscador
 function abrir() {
-  btnbusqueda.style.color = "#475267";
+  btnbusqueda.style.color = "#D92109";
   btnbusqueda.style.background = "white";
   text.style.width = "300px";
   text.style.padding = "0 6px";
-  cjbusqueda.style.background = "#303d56";
+  cjbusqueda.style.background = "#D92109";
 }
 function Cerrar() {
   btnbusqueda.style.color = "";

@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet"/>
-    <title>BlueMoonShop</title>
+    <title>Puppie Love</title>
 </head>
 
 <body>
@@ -30,14 +30,6 @@
                 <div class="btn-buscar" id="btn-buscar">
                     <i class="fas fa-search"></i>
                     <div id="resultados">
-                        <c:forEach items="${lstProductos}" var="a">
-                            <a href="../static/crudprod?opcion=comprar&cod=${a.idProducto}">
-                                <div>
-                                    <img src="${pageContext.request.contextPath}/img/${a.idProducto}.jpg" alt=""/>
-                                    <h2></h2>
-                                </div>
-                            </a>
-                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -46,18 +38,17 @@
                 <div id="usuario">
                     <i class="fas fa-caret-up"></i>
                     <h4 id="msj">
-                        Bienvenido a<br/>BlueMoonShop
+                        Bienvenido a<br/>Puppie Love
                     </h4>
                     <a href="javascript: document.logoutForm.submit() ">
                         <img src="../icons/Grupo 64.svg" id="hombre" alt="No se encuentra la imagen"/></a>
                     <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
                     </form>
-                </div>
-            </div>
+                     </div>
+        </div>
             <div id="carrito">
                 <i class="fas fa-shopping-cart icons"></i> <b id="ncompras">0</b>
             </div>
-        </div>
     </nav>
 </header>
 <main>
@@ -101,7 +92,6 @@
         </h2>
         <div id="Ventas">
             <div class="row">
-
             </div>
         </div>
         <div id="mensaje">
@@ -148,7 +138,7 @@
         <h2>Contactanos</h2>
         <li>Telf : 989899989</li>
         <li>Whatsapp : 987653678</li>
-        <li>Correo : Bluemoon@cibertec.com</li>
+        <li>Correo : PuppieLove@cibertec.com</li>
     </ul>
     <img class="logo-blanco2" src="../icons/LogoBlanco.svg" alt="No se Encuentra"/>
 </footer>
