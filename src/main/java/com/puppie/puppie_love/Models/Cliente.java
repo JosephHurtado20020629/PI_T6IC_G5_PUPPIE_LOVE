@@ -3,9 +3,6 @@ package com.puppie.puppie_love.Models;
 
 import lombok.Data;
 
-
-
-
 @Data
 public class Cliente {
 
