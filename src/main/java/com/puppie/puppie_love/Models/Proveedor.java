@@ -6,11 +6,11 @@ import lombok.Data;
 @Data
 public class Proveedor {
 
-    private String idProveedor;
+    private int idProveedor;
 
-    private String nombreCia;
+    private String nomCia;
 
-    private String nombreContacto;
+    private String nomContac;
 
     private String direccion;
 

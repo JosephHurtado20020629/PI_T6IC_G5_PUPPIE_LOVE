@@ -5,12 +5,11 @@ import lombok.Data;
 
 @Data
 public class Sede {
-    public Sede(String idSede, String nomSede, String dirSede, String nroSede, String codUsuario) {
+    public Sede(String idSede, String nomSede, String dirSede, String nroSede) {
         this.idSede = idSede;
         this.nomSede = nomSede;
         this.dirSede = dirSede;
         this.nroSede = nroSede;
-        this.codUsuario = codUsuario;
     }
 
     public Sede() {
@@ -25,7 +24,5 @@ public class Sede {
     private String dirSede;
 
     private String nroSede;
-
-    private String codUsuario;
 
 }

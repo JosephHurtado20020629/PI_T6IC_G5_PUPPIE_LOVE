@@ -1,0 +1,255 @@
+create database BD_PUPPIES_LOVE;
+use  BD_PUPPIES_LOVE;
+
+CREATE TABLE ROLES
+(
+    idRoles      int auto_increment primary key,
+    descripcion  varchar (20) not null
+);
+
+ CREATE TABLE USUARIO
+(
+    codUsuario     int auto_increment primary key,
+    nombre         varchar (20) not null,
+	apellido       varchar (20) not null,
+	username       varchar (20) not null,
+	password       varchar (20) not null,
+    idRoles        int  null references ROLES
+);
+
+CREATE TABLE CLIENTE
+(
+    codCliente     int auto_increment primary key,
+    nombre         varchar (20) not null,
+	apellido       varchar (20) not null,
+	username       varchar (20) not null,
+	contraseña     varchar (60) not null,
+	nroDoc         varchar (20) not null,
+	telefono       varchar (20) not null,
+    direccion      varchar (50) not null
+);
+
+
+CREATE  TABLE CATEGORIAS
+(
+    idCategoria    char (5) not null primary key,
+	nomCategoria   varchar(60) not null
+);
+
+CREATE TABLE PROVEEDORES
+(
+    idProveedor    int auto_increment primary key,
+	nomCia         varchar(50) not null,
+	nomContac      varchar(25) not null,
+	direccion      varchar(60) not null,
+	telefono       varchar(14) not null
+);
+
+CREATE TABLE SERVICIOS /*adopcion y perros guias*/
+(
+    idPet          char (5) not null primary key,
+	nomPet         varchar(50) not null,
+	idCategoria    char (5) null references categorias,
+	estado         varchar(50) not null
+);
+
+ CREATE TABLE PRODUCTOS
+(
+    idProducto     char (5) not null primary key,
+	nomProducto    varchar(100) not null,
+	idCategoria    char (5) null references categorias,
+	precio         decimal (5,2) not null,
+	stock          smallint not null
+);
+
+CREATE TABLE SEDES
+(
+    idSede        char (5) not null primary key,
+	nomSede       varchar (30) not null,
+	direcSede     varchar (60) not null,
+	numSede       varchar (15) not null
+);
+
+CREATE TABLE PEDIDOS
+(
+    idPedido             int auto_increment primary key,
+	codCliente           int null references CLIENTE,
+	idProducto           char (5) null references PRODUCTOS,
+	idSede               char (5) not null references SEDES,
+	cant_x_unidad        int not null,
+	fech_pedido          datetime not null,
+	fech_aprox_entrega   datetime null,
+	fech_envio           datetime null,
+	destinatario         varchar(40) null,
+	direcDestinatario    varchar(60) null
+);
+    
+insert into ROLES (descripcion) values ('Usuario');
+insert into ROLES (descripcion) values ('Administrador');
+
+SELECT * FROM ROLES;
+
+insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Maria','Salazar','Maria101','Maria123', '1');
+insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Luis','Hernandez','Luis102','Luis123','1');
+insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Laura','Torres','Laura103','Laura123','2');
+insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Sara','Navarro','Sara104','Sara123','2');
+insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Carlos','Salinas','Carlos105','Carlos123','1');
+insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Jose','Setien','Jose106','Jose123','1');
+insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Manuel','Alcaraz','Manuel107','Manuel123','2');
+insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Jorge','Alcocer','Jorge108','Jorge123','2');
+insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Paloma','Rosas','Paloma109','Paloma123','1');
+insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Rafael','Viveros','Rafael110','Rafael123','1');
+
+SELECT * FROM USUARIO; 
+
+
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Maria','Salazar','Maria101','Maria123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Luis','Hernandez','Luis102','Luis123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Laura','Torres','Laura103','Laura123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Sara','Navarro','Sara104','Sara123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Carlos','Salinas','Carlos105','Carlos123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Jose','Setien','Jose106','Jose123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Manuel','Alcaraz','Manuel107','Manuel123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Jorge','Alcocer','Jorge108','Jorge123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Paloma','Rosas','Paloma109','Paloma123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Rafael','Viveros','Rafael110','Rafael123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Pablo','Maldonado','Pablo111','Pablo123','12346678', '987654321','Av. La Floresta 452');
+insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Ruben','Sanchez','Ruben112','Ruben123','12346678', '987654321','Av. La Floresta 452');
+
+SELECT * FROM CLIENTE;
+
+insert into CATEGORIAS(idCategoria,nomCategoria) values ('CT1','Adopcion');
+insert into CATEGORIAS(idCategoria,nomCategoria) values ('CT2','Perros Guia');
+insert into CATEGORIAS(idCategoria,nomCategoria) values ('CT3','Alimentos para perros');
+insert into CATEGORIAS(idCategoria,nomCategoria) values ('CT4','Alimentos para gatos');
+insert into CATEGORIAS(idCategoria,nomCategoria) values ('CT5','Farmacia');
+insert into CATEGORIAS(idCategoria,nomCategoria) values ('CT6','Juguetes');
+insert into CATEGORIAS(idCategoria,nomCategoria) values ('CT7','Camas y casas');
+
+SELECT * FROM CATEGORIAS;
+
+
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('INRETAIL','Adriana Rey','Calle Agustin Lara 245','985456321');
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('FERREYCORP','Alexander Carbajal','Av. Independencia 401','928750017');
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('DIVEIMPORT','Andrea Cruz','Calle Zaragoza 1010','912875427');
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('KOMAT','Daniela Hernandez','Calle Matamoros 546','912875318');
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('STRACON','Diego Forero','Calle Ocampos 123','92583645');
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('AJEPER','Jorge Orozco','Calle Aldama 259','985446321');
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('CETCO','Juan Ortega','Av. Libertad 148','93574896');
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('MOLY-COP','Laura Diaz','Av. Javier Prado 456','911125868');
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('EXSA','Margarita Perez','Av. Floresta 832','98562419');
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('DANPER','Oscar Ovalle','Av. Universitaria 401','985589102');
+insert into PROVEEDORES(nomCia,nomContac,direccion,telefono) values ('TECNOFIL','Paola Correa','Av. La Paz 52','925463456');
+
+SELECT * FROM PROVEEDORES;
+
+
+/*Adopción perros y gatos*/
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS01','Bolt','CT1','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS02','Hachiko','CT1','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS03','Blue','CT1','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS04','Max','CT1','No Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS05','Doki','CT1','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS06','Toby','CT1','No Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS07','Salem','CT1','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS08','Botas','CT1','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS09','Mochi','CT1','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS10','Yoomi','CT1','Disponible');
+
+/*perros guia*/
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS11','Margarita','CT2','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS12','Draco','CT2','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS13','Luna','CT2','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS14','Hawaii','CT2','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS15','Scan','CT2','No Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS16','Scrappy','CT2','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS17','Snow','CT2','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS18','Tuki','CT2','No Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS19','Winnie','CT2','Disponible');
+insert into SERVICIOS(idPet,nomPet,idCategoria,estado) values ('PS20','Bella','CT2','Disponible');
+
+SELECT * FROM SERVICIOS;
+
+/*comida para perros*/
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC01','EQUILIBRIO ADULT DOGS SMALL BREEDS 0.5KG UNIDAD','CT3',20.90,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC02','PROPLAN CACHORRO RAZAS PEQUEÑAS DE POLLO','CT3',105.90,200);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC03','PROPLAN CACHORRO RAZA MEDIANA DE POLLO','CT3',415.90,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC04','PROPLAN ADULTO RAZAS GRANDES DE POLLO','CT3',350.90,130);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC05','PROPLAN LATA ADULTO SENIOR 7+ CARNE Y ARROZ 368.5 G','CT3',17.90,115);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC06','PROPLAN LATA CACHORRO POLLO Y ARROZ 368.5 G','CT3',17.90,180);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC07','BRIT CARE JUNIOR LARGE BREED LAMB & RICE - CORDERO 3 KG','CT3',97.00,250);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC08','BRIT CARE MINI GRAIN FREE ADULTO CORDERO 2 KG','CT3',90.00,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC09','BRAVERY CACHORRO RAZAS PEQUEÑAS – SALMÓN GRAIN FREE - 2 KG','CT3',77.00,120);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC10','HILLS CANINE LATA SENIOR PAVO 370GR','CT3',20.00,300);
+
+/*comida para gatos*/
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC11','MATISSE GATO ADULTO CASTRADO SALMÓN Y ARROZ ','CT4',104.90,110);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC12','HILLS PD FELINE MULTICARE 4 LB 1.8 KG- 6247','CT4',75.90,135);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC13','HILLS FELINE LATA 156GR','CT4',80.00,185);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC14','PROPLAN VETERINARY DIETS CAT URINARY 1.5 KG','CT4',60.50,180);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC15','BRIT CARE CAT STERILISED URINARY HEALTH 2 kg','CT4',55.00,110);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC16','PROPLAN CAT SENSITIVE 3 KG','CT4',100.20,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC17','EQUILIBRIO ADULT CATS HAIRBALL ALL BREEDS 1.5KG','CT4',78.90,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC18','APPLAWS PESCADO AZUL - GATOS ADULTOS','CT4',59.90,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC19','RICOCAT TROZOS EN SALSA DE CARNE','CT4',6.90,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC20','GRAN PLUS GOURMET CARNE X 85 GR. - GATOS ADULTOS','CT4',9.90,150);
+
+/*farmacia*/
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC21','BIOMONT HEPATIN CAPSULAS X UNIDAD','CT5',3.50,10);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC22','TRITON – PROPANTELINA X UNIDAD','CT5',3.00,115);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC23','LABYES – GERIOOX X UNIDAD','CT4',5.00,145);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC24','JHON MARTIN – TRAMADOL 75MG COMPRIMIDOS X UNIDAD','CT5',3.80,230);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC25','AGROVET MARKET – ARTROSAMINE X UNIDAD','CT5',2.00,540);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC26','ECA ANTIBACTERIAL ECADERM – 1 SPRAY X 500 ML','CT5',74.00,300);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC27','BIOMONT TRANQUILISS GOTAS X 15 ML UNIDAD','CT5',15.00,120);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC28','INVET – GENTAX OTICO X 15 ML','CT5',28.70,30);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC29','VETOQUINOL – EPAKITIN X 60 GRAMOS','CT5',100.00,55);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC30','ZOETIS REVOLUTION PLUS X UNIDAD X0.5 ML (NARANJA FELINOS DE 2.5 A 5KG)','CT5',64.00,136);
+
+/*juguetes*/
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC31','PETSTAGES ORKAKAT CATNIP INFUSED SPOOL','CT6',20.00,110);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC32','PETSTAGES CATNIP CHEW MICE','CT6',27.00,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC33','PETSTAGES DOGWOOD STICK','CT6',74.00,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC34','JUGUETE PETSTAGES','CT6',17.00,200);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC35','JUGUETE KONG KP33 SMALL PUPPY TEETHING STICK','CT6',36.00,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC36','YELLOW GLADIATOR SQUEAKER INSIDE M SIZE PLUSH','CT6',54.00,130);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC37','MELODY TUBE MELODY CHASER OWL WITH SOUND CHIP','CT6',43.90,115);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC38','PETSTAGES PLAY CONE LURE','CT6',34.00,180);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC39','PETSTAGES GLOW SNAIL','CT6',25.90,250);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC40','PETSTAGES ORKAKAT CATNIP WIGGLE WORM','CT6',45.00,150);
+
+/*camas y casas*/
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC41','CAMA PETIT COCO M','CT7',262.00,120);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC42','CAMA COCO PILLOW M','CT7',49.90,300);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC43','RASCADOR PARA GATOS CATITO MARRON','CT7',217.00,110);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC44','CAMA DONUT','CT7',73.00,135);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC45','TUNEL PARA GATOS','CT7',83.90,185);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC46','PET HOUSE WOOD OUTDOOR','CT7',65.50,180);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC47','FOLDABLE INDOOR','CT7',120.00,110);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC48','VELADOR PARA GATOS','CT7',396.00,150);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC49','CLAWS & PAWS','CT7',310.00,250);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC50','IMAC CUCCIA ZEUS','CT7',257.00,150);
+
+SELECT * FROM PRODUCTOS;
+
+insert into SEDES(idSede,nomSede,direcSede,numSede) values ('S001','PuppiesLove-San Miguel','Av. La Marina 1475','1');
+insert into SEDES(idSede,nomSede,direcSede,numSede) values ('S002','PuppiesLove-Breña','Jiron Breña 123','2');
+insert into SEDES(idSede,nomSede,direcSede,numSede) values ('S003','PuppiesLove-Miraflores','Calle Schell 202','3');
+
+SELECT * FROM SEDES;
+
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('1','PC50','S001',10,'2017-07-15','2017-07-25','2017-07-17','Maria Salazar','Av. La Floresta 452');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('2','PC02','S001',15,'2017-10-23','2017-11-07','2017-10-25','Luis Hernandez','Calle Jaen 132');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('3','PC49','S002',5,'2019-05-01','2019-05-30','2019-05-03','Laura Torres','Calle 42');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('4','PC04','S003',14,'2020-08-15','2020-08-28','2020-08-17','Sara Navarro','Av. Moche 589');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('5','PC47','S002',20,'2020-03-23','2020-04-15','2020-03-25','Carlos Salinas','Calle Valdivia 254');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('6','PC06','S002',15,'2020-07-18','2020-07-30','2020-07-20','Jose Setien','Av. Javier Prado 1256');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('7','PC07','S003',18,'2020-08-22','2020-09-15','2020-08-24','Manuel Alcaraz','Av. Jorge chavez 412');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('8','PC45','S003',7,'2020-01-30','2020-02-25','2020-02-01','Jorge Alcocer','Calle Jose Calama 111');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('9','PC09','S001',6,'2019-11-13','2020-01-25','2020-11-15','Paloma Rosas','Parque 52');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('10','PC18','S002',30,'2019-12-22','2020-01-30','2019-12-27','Rafael Viveros','Calle Ronda 351');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('11','PC11','S001',12,'2020-02-12','2020-03-28','2020-02-15','Pablo Maldonado','Calle de las Pizzas 532');
+insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('12','PC12','S001',3,'2019-07-03','2019-07-25','2017-07-07','Ruben Sanchez','Calle Manco Capac 241');
+
+SELECT * FROM PEDIDOS;
+

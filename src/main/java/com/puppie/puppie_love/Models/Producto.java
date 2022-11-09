@@ -8,11 +8,9 @@ public class Producto {
 
 
     private String idProducto;
-    private String nombreProducto;
-    private Proveedor proveedor;
-    private String id_Proveedor;
+    private String nomProducto;
     private Categoria categoria;
-    private String id_Categoria;
+    private String idCategoria;
     private double precioUnidad;
     private int stock;
 
