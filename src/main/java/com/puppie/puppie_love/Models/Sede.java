@@ -1,9 +1,14 @@
 package com.puppie.puppie_love.Models;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Data
+
+@Getter
+@Setter
 public class Sede {
     public Sede(String idSede, String nomSede, String dirSede, String nroSede) {
         this.idSede = idSede;
