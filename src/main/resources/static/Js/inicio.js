@@ -14,7 +14,7 @@ function carrusel() {
       img.setAttribute("src","../icons/" + arrimg[i]);
     };
   }
-  indice[contador].style.color = "#384358";
+  indice[contador].style.color = "#D92109";
   contador++;
   if (contador >= 3) contador = 0;
   tiempo = setTimeout("carrusel()", 2000);

@@ -177,7 +177,7 @@ insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC04','PROPLAN ADULTO RAZAS GRANDES DE POLLO','CT3',350.90,130);
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC05','PROPLAN LATA ADULTO SENIOR 7+ CARNE Y ARROZ 368.5 G','CT3',17.90,115);
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC06','PROPLAN LATA CACHORRO POLLO Y ARROZ 368.5 G','CT3',17.90,180);
-insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC07','BRIT CARE JUNIOR LARGE BREED LAMB & RICE - CORDERO 3 KG','CT3',97.00,250);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC07','BRIT CARE JUNIOR LARGE BREED CORDERO 3 KG','CT3',97.00,250);
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC08','BRIT CARE MINI GRAIN FREE ADULTO CORDERO 2 KG','CT3',90.00,150);
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC09','BRAVERY CACHORRO RAZAS PEQUEÑAS – SALMÓN GRAIN FREE - 2 KG','CT3',77.00,120);
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC10','HILLS CANINE LATA SENIOR PAVO 370GR','CT3',20.00,300);
@@ -225,7 +225,7 @@ insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC44','CAMA DONUT','CT7',73.00,135);
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC45','TUNEL PARA GATOS','CT7',83.90,185);
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC46','PET HOUSE WOOD OUTDOOR','CT7',65.50,180);
-insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC47','FOLDABLE INDOOR','CT7',120.00,110);
+insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC47','FOLDABLE INDOOR PETS LOVER','CT7',120.00,110);
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC48','VELADOR PARA GATOS','CT7',396.00,150);
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC49','CLAWS & PAWS','CT7',310.00,250);
 insert into PRODUCTOS(idProducto,nomProducto,idCategoria,precio,stock) values ('PC50','IMAC CUCCIA ZEUS','CT7',257.00,150);

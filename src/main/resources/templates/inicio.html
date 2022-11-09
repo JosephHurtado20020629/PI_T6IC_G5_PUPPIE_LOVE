@@ -54,7 +54,7 @@
 <main>
     <section>
         <div id="baner" th:fragment="banner">
-            <img id="img-baner" src="../icons/Banner1.jpg" alt="No se Encuentra "/>
+            <img id="img-baner" src="../icons/Banner1.svg" alt="No se Encuentra "/>
             <i class="fas fa-circle indice"></i> <i class="fas fa-circle indice"></i>
             <i class="fas fa-circle indice"></i>
         </div>
@@ -66,7 +66,7 @@
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/5}"><img src="../icons/perro_guia.png" alt="No se encuentra la imagen"/>
+                <a th:href="@{/product/2}"><img src="../icons/perro_guia.png" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Perros Guía</h2>
                 </a>
             </div>
@@ -76,20 +76,25 @@
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/2}"><img src="../icons/alimento1.png" alt="No se encuentra la imagen"/>
+                <a th:href="@{/product/4}"><img src="../icons/alimento1.png" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Alimentos para perros</h2>
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/4}"><img src="../icons/farmacia2.jpg" alt="No se encuentra la imagen"/>
+                <a th:href="@{/product/5}"><img src="../icons/farmacia2.jpg" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Farmacia</h2>
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/4}"><img src="../icons/juguetes.jpg" alt="No se encuentra la imagen"/>
+                <a th:href="@{/product/6}"><img src="../icons/juguetes.jpg" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Juguetes</h2>
                 </a>
             </div>
+          <!--  <div class="cat">
+                <a th:href="@{/product/7}"><img src="../icons/juguetes.jpg" alt="No se encuentra la imagen"/>
+                    <h2 class="h2-cat">Camas y casas</h2>
+                </a>
+            </div> -->
           
         </div>
         <h2 id="title-vent">
@@ -127,9 +132,13 @@
             <li><a href="#" class="feat-btn"><i class="fas fa-tags"></i>Categorias
                 <span class="fas fa-caret-down first"></span> </a>
                 <ul class="feat-show">
-                    <li><a th:href="@{/product/5}">Tiendas</a></li>
-                    <li><a th:href="@{/product/3}">Nosotros</a></li>
-                    <li><a th:href="@{/product/1}">Contactanos</a></li>
+                    <li><a th:href="@{/product/1}">Adopción</a></li>
+                    <li><a th:href="@{/product/2}">Perros guía</a></li>
+                    <li><a th:href="@{/product/3}">Alimentos gatos</a></li>
+                    <li><a th:href="@{/product/4}">Alimentos perros</a></li>
+                    <li><a th:href="@{/product/5}">Farmacia</a></li>
+                    <li><a th:href="@{/product/6}">Juguetes</a></li>
+                  <!--  <li><a th:href="@{/product/7}">Casas y camas</a></li> -->
                 </ul></li>
             <li><a href="#" class="tiendas-btn"><i class="fas fa-store"></i>Tiendas
                 <span class="fas fa-caret-down second"></span> </a>

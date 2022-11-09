@@ -105,8 +105,10 @@
 
 .container-product-name{
   width: 100%;
-  height: 45px;
+  display: flex;
+  height: 53px;
   text-align: center;
-  padding: 5px;
-  /* justify-content: center; */
+  padding: 14px;
+  align-items: center;
+  margin: 10px auto;
 }

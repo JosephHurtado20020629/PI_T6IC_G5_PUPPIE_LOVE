@@ -5,11 +5,13 @@ public class Enums {
 
 public enum CATEGORIAS {
 
-        HOGAR(1, "Hogar"),
-        MODA(2, "Moda"),
-        TECNOLOGIA(3, "Tecnologia"),
-        PAPELERIA(4, "Papeleria"),
-    SALUD_Y_BELLEZA(5,"Salud y Belleza");
+        ADOPCION(1, "Adopción"),
+        FARMACIA(2, "Farmacia"),
+        ALIMENTOS_PARA_PERROS(3, "Alimentos para perros"),
+        ALIMENTOS_PARA_GATOS(4, "Alimentos para gatos"),
+        PERROS_GUIA(5,"Perros guía"),
+	    JUGUETES(6,"Juguetes"),
+	    CASAS_CAMAS(7,"Casas y camas");
         private Integer idCategoria;
         private String nombreCategoria;
 
