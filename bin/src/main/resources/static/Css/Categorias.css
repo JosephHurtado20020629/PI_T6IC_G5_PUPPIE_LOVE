@@ -1,0 +1,112 @@
+#baner {
+  /* position: relative; */
+  /* top: 15vh; */
+  /* left: 5%; */
+  margin: 5%;
+  width: 90%;
+  display: inline-block;
+  height: 100%;
+}
+.indice {
+  position: relative;
+  left: 45%;
+  margin: 16px;
+  cursor: pointer;
+}
+#contenedor-cat{
+  display: flex;
+  margin: auto 5%;
+}
+#categoria{
+  width: 400px;
+  height: 100%;
+  border: 2px solid #E44949;
+  text-align: center;
+  /* border-radius: 20px; */
+  cursor: pointer;
+  min-width: 200px;
+  margin-top: 50px;
+}
+#categoria h2{
+  color: white;
+  background-color: #E44949;
+  padding: 5px;
+  /* border-top-left-radius: 20px; */
+  /* border-top-right-radius: 20px; */
+}
+#categoria li{
+  padding: 10px;
+  border-bottom: 2px solid #E44949;
+  list-style: none;
+
+}
+#categoria li:last-child{
+  border: none;
+}
+
+#categoria a{
+  text-decoration: none;
+  color: #E44949;
+}
+#Ventas {
+  display: flex;
+  /* width: 100%; */
+  /* max-width: 100%; */
+  /* margin-left: 10%; */
+  flex-wrap: wrap;
+}
+.compras {
+  width: 200px;
+  /* height: 270px; */
+  margin: 49px;
+  display: flex;
+  padding: 10px;
+  border: 3px solid #E44949;
+  border-radius: 20px;
+  text-align: center;
+  color: #E44949;
+  flex-direction: column;
+  align-items: center;
+}
+.compras img{
+  width: 150px;
+  height:100px;
+  border-radius:25px ;
+  /* margin: 15px; */
+}
+.compras input{
+  width: 120px;
+  height: 40px;
+  color:  #E44949;
+  background-color: white;
+  font-size: 15px;
+  font-style: bold;
+  border-radius: 25px;
+  outline: none;
+  border: 2px solid #D92109;
+  margin-top: 6px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: start;
+  /* margin-top: 25vh; */
+}
+
+.compras input:hover {
+  color: white;
+  background-color: #D92109;
+  font-family: 'Poppins', sans-serif
+}
+
+.container-product-name{
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  padding: 5px;
+  /* justify-content: center; */
+}

@@ -75,7 +75,7 @@
 }
 .cat h2{
 text-align: center;
-background-color: #D92109;
+background-color: #384358;
 width: 280px;
 height:40px;
 color: white;
@@ -99,7 +99,7 @@ top: 110px;
   height: 270px;
   margin: 30px 100px;
   display: inline-block;
-  border: 3px solid #D92109;
+  border: 3px solid #384358;
   border-radius: 20px;
   text-align: center;
   color: #384358;
@@ -113,7 +113,7 @@ top: 110px;
 .compras input{
   width: 120px;
   height: 40px;
-  color:  #D92109;
+  color:  #475267;
   background-color:white;
   font-size: 15px;
   font-style: bold;
