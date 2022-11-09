@@ -1,19 +1,26 @@
 package com.puppie.puppie_love.Models;
 
+
 import lombok.Data;
+import org.apache.catalina.User;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Data
 @Entity
-@Table(name = "CATEGORIAS")
-public class Categoria {
-	@Id
-	@Column(name = "idCategoria")
-	private String idCategoria;
+@Table(name="ROLES")
+public class Rol {
 
-	@Column(name = "nomCategoria")
-	private String nombreCategoria;
+	@Id
+	@Column(name = "idRoles")
+    private int idRol;
+
+	@Column(name = "descripcion")
+    private String descripcion;
+
+
 }
