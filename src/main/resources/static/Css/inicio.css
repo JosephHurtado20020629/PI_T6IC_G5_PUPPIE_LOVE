@@ -58,8 +58,7 @@
 #categoria {
   position: relative;
   top: 20vh;
-  width: 90%;
-  left: 5%;
+  width: 100%;
   display:block;
 }
 .cat {
@@ -91,8 +90,7 @@ top: 110px;
 #Ventas {
   position: relative;
   top: 25vh;
-  left: 5%;
-  width: 90%;
+  width: 100%;
   display:flex;
   flex-wrap: wrap;
 }

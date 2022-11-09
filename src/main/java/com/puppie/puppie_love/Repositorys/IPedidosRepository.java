@@ -11,6 +11,6 @@ import com.puppie.puppie_love.Models.Pedido;
 @Repository
 public interface IPedidosRepository extends JpaRepository<Pedido,String > {
 	
-	@Query(value = "select * from Pedidos p  group by (p.ID_PRODUCTO) order by sum(p.CANT_X_UNIDAD) desc limit 6",nativeQuery = true)
+	@Query(value = "select * from Pedidos p  group by (p.idProducto) order by sum(p.cant_x_unidad) desc limit 6",nativeQuery = true)
      List<Pedido> masVendidos();
 }

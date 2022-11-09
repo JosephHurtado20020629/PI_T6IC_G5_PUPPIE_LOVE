@@ -62,20 +62,39 @@
         <div id="categoria">
             <div class="cat">
                 <a th:href="@{/product/1}"><img src="../icons/Imagen 1.png" alt="No se encuentra la imagen"/>
-                    <h2 class="h2-cat">Tiendas</h2>
+                    <h2 class="h2-cat">Adopción</h2>
                 </a>
             </div>
             <div class="cat">
                 <a th:href="@{/product/5}"><img src="../icons/F1.png" alt="No se encuentra la imagen"/>
-                    <h2 class="h2-cat">Nosotros</h2>
+                    <h2 class="h2-cat">Perros Guía</h2>
                 </a>
             </div>
             <div class="cat">
                 <a th:href="@{/product/3}"><img src="../icons/Imagen 2.png" alt="No se encuentra la imagen"/>
-                    <h2 class="h2-cat">Contactanos</h2>
+                    <h2 class="h2-cat">Alimentos para gatos</h2>
                 </a>
             </div>
-
+            <div class="cat">
+                <a th:href="@{/product/2}"><img src="../icons/C4.png" alt="No se encuentra la imagen"/>
+                    <h2 class="h2-cat">Alimentos para perros</h2>
+                </a>
+            </div>
+            <div class="cat">
+                <a th:href="@{/product/4}"><img src="../icons/PS3.png" alt="No se encuentra la imagen"/>
+                    <h2 class="h2-cat">Farmacia</h2>
+                </a>
+            </div>
+            <div class="cat">
+                <a th:href="@{/product/4}"><img src="../icons/PS3.png" alt="No se encuentra la imagen"/>
+                    <h2 class="h2-cat">Juguetes</h2>
+                </a>
+            </div>
+            <div class="cat">
+                <a th:href="@{/product/4}"><img src="../icons/PS3.png" alt="No se encuentra la imagen"/>
+                    <h2 class="h2-cat">Camas y casas</h2>
+                </a>
+            </div>
         </div>
         <h2 id="title-vent">
             <i class="fab fa-hotjar"></i>
@@ -83,6 +102,16 @@
         </h2>
         <div id="Ventas">
             <div class="row">
+            <figure th:each="p:${lstmasVendidos}" class="compras">
+                    <img th:src="@{${'img/' + p.idProducto + '.png'}}" alt=""/>
+                    <h5 th:text="${p.nombreProducto}"></h5>
+                    <h2 th:text="${'S/' + p.precioUnidad}">
+                    </h2>
+                    <form action="${pageContext.request.contextPath}/crudprod" method="post">
+                        <input type="hidden" name="cod" value="${p.idProducto}">
+                        <input class="btn-compras" type="submit" name="opcion" value="comprar">
+                    </form>
+                </figure>
             </div>
         </div>
         <div id="mensaje">
