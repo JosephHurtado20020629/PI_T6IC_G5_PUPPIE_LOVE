@@ -96,12 +96,7 @@ public class ProductoController {
     private String parseCategory(Integer idCategory) {
         String nombre = null;
         switch (idCategory) {
-            case 1:
-                nombre = Enums.CATEGORIAS.ADOPCION.getNombreCategoria();
-                break;
-            case 2:
-                nombre = Enums.CATEGORIAS.PERROS_GUIA.getNombreCategoria();
-                break;
+            
             case 3:
                 nombre = Enums.CATEGORIAS.ALIMENTOS_PARA_GATOS.getNombreCategoria();
                 break;

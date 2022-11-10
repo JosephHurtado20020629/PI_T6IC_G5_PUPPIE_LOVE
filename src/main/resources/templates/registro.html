@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head> 
+ <title>Registro</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../Css/Registro.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet"/>
+    <link rel="shortcut icon" href="../icons/Favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="../Js/jquery-3.5.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+<img class="logo" src="../icons/Logo azul.svg" alt="No se encuentra">
+<img class="wave" src="../icons/Trazado 66.png"/>
+<div class="container">
+    <div class="img">
+        <img src="../icons/undraw_web_shopping_dd4l.svg"/>
+    </div>
+<div class="login-content">
+        <form th:action="grabar" method="post" th:object="${cliente}">
+           <img src="../icons/Grupo 64.svg"/>
+            <img src="../icons/Mujer_1.svg"/>
+            <h2 class="title">REGISTRO</h2>
+            <div class="input-div focus">             
+                <div class="i">
+                    <i class="fas fa-signature"></i>
+                </div>
+                <div class="div">
+                    <h5>Codigo</h5>
+                    <input th:field="*{codCliente}" type="text" id="codigo" class="hidden"/>
+                </div>
+            </div>
+            <div class="input-div focus">             
+                <div class="i">
+                    <i class="fas fa-signature"></i>
+                </div>
+                <div class="div">
+                    <h5>Nombre</h5>
+                    <input th:field="*{nombre}" type="text" id="nombre" class="input" required="true"/>
+                </div>
+            </div>
+            <div class="input-div focus">
+                <div class="i">
+                    <i class="fas fa-signature"></i>
+                </div>
+                <div class="div">
+                    <h5>Apellido</h5>
+                    <input th:field="*{apellido}" type="text" id="Apellido" class="input" required="true"/>
+
+                </div>
+            </div>
+            <div class="input-div focus">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <h5>Username</h5>
+                    <input th:field="*{userName}" type="text" id="username" class="input" required="true"/>
+
+                </div>
+            </div>
+            <div class="input-div focus">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Contraseña</h5>
+                    <input th:field="*{contraseña}" type="text" id="password" class="input" required="true"/>
+
+                </div>
+            </div>
+            <div class="input-div focus">
+                <div class="i">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <div class="div">
+                    <h5>Documento</h5>
+                    <input th:field="*{nroDocumento}" type="text" id="documento" class="input" required="true"/>
+
+                </div>
+            </div>
+            <div class="input-div focus">
+                <div class="i">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="div">
+                    <h5>Telefono</h5>
+                    <input th:field="*{telefono}" type="text" id="telefono" class="input" required="true"/>
+                </div>
+            </div>
+            <div class="input-div focus">
+                <div class="i">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="div">
+                    <h5>Direccion</h5>
+                    <input th:field="*{direccion}" type="text" id="direccion" class="input" required="true"/>
+
+                </div>
+            </div>
+            <button type="submit" id="btn" name="opcion" value="registrar">Registrar</button>
+            
+            <div th:if="${success} != null" th:text="${success}"></div>
+	        <div th:if="${mensaje} != null" th:text="${mensaje}"></div>
+         
+        </form>
+</div>
+<script type="text/javascript" src="../Js/main.js"></script>
+<script>
+    var ruta = "../";
+</script>
+</body>
+</html>

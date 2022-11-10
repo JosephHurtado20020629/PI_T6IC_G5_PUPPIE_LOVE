@@ -39,23 +39,20 @@
 
             <div class="container">
                 <div class="row">
-
                             <div class="col-md-4">
                                 <div id="Ventas">
-                                    <figure th:each="p : ${lstProducts}" th:class="${'compras '+p.categoria.nombreCategoria}">
+                                    <figure th:each="s : ${listService}" class="compras">
                                       <img
-                                                th:src="@{${'/img/'+p.idProducto+'.png'}}"
+                                                th:src="@{${'/img/'+s.idPet+'.png'}}"
                                                 alt="" />
                                         <div class="container-product-name">
-                                        <h5 th:text="${p.nombreProducto}"></h5>
+                                        <h5 th:text="${s.nomPet}"></h5>
                                         </div>
-                                        <h2 th:text="${'S/'+p.precioUnidad}">
-                                        </h2>
                                         <form action="${pageContext.request.contextPath}/crudprod"
                                               method="post">
-                                            <input type="hidden" name="cod" value="${p.getIdProducto()}">
+                                            <input type="hidden" name="cod" value="${s.idPet}">
                                             <input class="btn-compras" type="submit" name="opcion"
-                                                   value="comprar">
+                                                   th:value="${s.estado}">
                                         </form>
                                     </figure>
                                 </div>
