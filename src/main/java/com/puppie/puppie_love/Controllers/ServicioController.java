@@ -1,7 +1,6 @@
 package com.puppie.puppie_love.Controllers;
 
-import com.puppie.puppie_love.Models.Categoria;
-import com.puppie.puppie_love.Models.Producto;
+
 import com.puppie.puppie_love.Models.Servicios;
 import com.puppie.puppie_love.Repositorys.ICategoriaRepository;
 import com.puppie.puppie_love.Repositorys.IServicioRepository;
