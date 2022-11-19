@@ -110,7 +110,7 @@ public class ProductoController {
                 nombre = Enums.CATEGORIAS.JUGUETES.getNombreCategoria();
                 break;
             case 7:
-                nombre = Enums.CATEGORIAS.CASAS_CAMAS.getNombreCategoria();
+                nombre = Enums.CATEGORIAS.CASAS_y_CAMAS.getNombreCategoria();
                 break;
         }
         return nombre;

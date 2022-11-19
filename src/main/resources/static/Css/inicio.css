@@ -6,6 +6,14 @@
   display: inline-block;
   height: 100%;
 }
+
+.ds-fx {
+	display: flex;
+	flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
 .indice {
   position: relative;
   left: 45%;
@@ -16,7 +24,7 @@
 #title-cat{
   position: relative;
   display: inline-block;
-  top: 25vh;
+  top: 15vh;
   left: 44%;
   margin: 30px;
   color: #D92109;
@@ -57,10 +65,10 @@
 }
 #categoria {
   position: relative;
-  top: 20vh;
+  top: 10vh;
   width: 100%;
-  display:block;
 }
+
 .cat {
   position: relative;
   left: 20px;
@@ -76,7 +84,7 @@
 .cat h2{
 text-align: center;
 background-color: #D92109;
-width: 280px;
+width: 100%;
 height:40px;
 color: white;
 font-family: 'Poppins', sans-serif;
@@ -91,8 +99,6 @@ top: 110px;
   position: relative;
   top: 25vh;
   width: 100%;
-  display:flex;
-  flex-wrap: wrap;
 }
 .compras{
   width: 200px;
@@ -126,14 +132,14 @@ top: 110px;
 }
 .compras input:hover{
   color:  white;
-  background-color:#475267;
+  background-color:#D92109;
   font-family: 'Poppins', sans-serif
 }
 
 #mensaje{
   border-radius: 20px;
   position: relative;
-  top: 25vh;
+  top: 40vh;
   left: 25%;
   width: 50vw;
   color: #D92109;
@@ -141,8 +147,6 @@ top: 110px;
   border: 3px solid #D92109;
   text-align: center;
 }
-section iframe{
-}
 .asd{
-	text-align:center
-};
+	text-align:center;
+}

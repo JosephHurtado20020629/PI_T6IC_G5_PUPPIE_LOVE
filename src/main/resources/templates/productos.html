@@ -25,22 +25,13 @@
 </header>
 <main>
     <section>
-        <div id="baner" th:replace="inicio :: banner"></div>
-        <div id="contenedor-cat">
-            <div id="categoria">
-                <h2 th:text="${categoryName}"></h2>
-                <ul>
-                    <li th:each="n :${lstCategorys}"><a
-                            href="#"
-                            class="selector" idCategoria th:text="${n.nombreCategoria}"></a>
-                    </li>
-                </ul>
-            </div>
-
+        <div id="baner" th:replace="inicio :: banner"></div>           
             <div class="container">
+             <div id="categoria">
+                <h2 th:text="${categoryName}"></h2>
+            </div>
                 <div class="row">
-
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div id="Ventas">
                                     <figure th:each="p : ${lstProducts}" th:class="${'compras '+p.categoria.nombreCategoria}">
                                       <img
@@ -63,7 +54,6 @@
 
                 </div>
             </div>
-        </div>
     </section>
     <div class="btn">
         <span class="fas fa-bars"></span>

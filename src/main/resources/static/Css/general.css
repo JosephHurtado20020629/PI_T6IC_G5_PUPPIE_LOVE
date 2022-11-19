@@ -4,6 +4,20 @@
   box-sizing: border-box;
   
 }
+
+#img-baner {
+	width: 100%;
+    margin: 30px 20px;
+}
+
+.ds-fxW {
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
 body {
   padding: 0;
   margin: 0;
@@ -134,7 +148,7 @@ nav {
   top: 188px;
   right: -80px;
   width: 180px;
-  color: #303d56;
+  color: #333333;
   background-color: white;
   border: 1px solid darkgray;
   border-radius: 30px;
@@ -193,6 +207,9 @@ nav {
 .btn.click span:before{
   content: '\f00d';
 }
+::-webkit-scrollbar {
+    display: none;
+}
 .sidebar{
   position: fixed;
   top: 64px;
@@ -202,6 +219,7 @@ nav {
   z-index: 200;
   background: #384358;
   transition: left 0.7s ease;
+  overflow-x: auto;
 }
 .sidebar.show{
   left: 0px;
@@ -240,6 +258,7 @@ aside ul ul{
 }
 aside ul .feat-show.show{
   display: block;
+  text-transform: capitalize;
 }
 aside ul .tiendas-show.show1{
   display: block;
@@ -278,23 +297,39 @@ aside ul li a span.rotate{
 
 footer{
   position: relative;
-  top: 30vh;
+  top: 50vh;
   width: 100%;
   height: 270px;
   background-color: #E44949;
   /*display: block;*/
 }
 footer ul{
-  position: relative;
-  top: 10%;
-  margin: 40px 70px;
-  display: inline-block;
   color: white;
 }
+.footerWrap {
+	display: flex;
+	-webkit-box-align: start;
+	align-items: flex-start;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-orient: horizontal;
+	-webkit-flex-flow: row wrap;
+	padding-top: 45px;
+}
+.footerItem {
+	width: 32%;
+}
+.wancho {
+    width: 94%;
+}
+.footer .wancho {
+	max-width: 1180px;
+	position: relative;
+}
 .logo-blanco2{
-    width: 400px;
-    margin: 0px 30px;
-    margin-bottom: -54px;
+    width: 202px;
+    display: flex;
+    margin: 0px auto;
 }
 
 
