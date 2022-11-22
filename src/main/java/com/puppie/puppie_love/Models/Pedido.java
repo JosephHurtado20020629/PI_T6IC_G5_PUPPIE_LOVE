@@ -17,16 +17,9 @@ public class Pedido {
     @JoinColumn(name = "codCliente",insertable = false,updatable = false)
     private Cliente cliente;
 
-    @ManyToOne
-    @JoinColumn(name = "idProducto",insertable = false,updatable = false)
-    private Producto producto;
-
-
     @Column(name = "idSede")
     private String idSede;
 
-    @Column(name = "cant_x_unidad")
-    private int cantXUnidad;
 
     @Column(name = "fech_pedido")
     private Date fechaPedido;
@@ -43,6 +36,9 @@ public class Pedido {
     @Column(name = "direcDestinatario")
     private String direccionDestinatario;
 
+    
+    
+    
 	public int getIdPedido() {
 		return idPedido;
 	}
@@ -59,13 +55,6 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
-	public Producto getProducto() {
-		return producto;
-	}
-
-	public void setProducto(Producto producto) {
-		this.producto = producto;
-	}
 
 	public String getIdSede() {
 		return idSede;
@@ -75,13 +64,6 @@ public class Pedido {
 		this.idSede = idSede;
 	}
 
-	public int getCantXUnidad() {
-		return cantXUnidad;
-	}
-
-	public void setCantXUnidad(int cantXUnidad) {
-		this.cantXUnidad = cantXUnidad;
-	}
 
 	public Date getFechaPedido() {
 		return fechaPedido;

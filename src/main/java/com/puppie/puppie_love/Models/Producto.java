@@ -9,6 +9,8 @@ import javax.persistence.*;
 @Table(name = "PRODUCTOS")
 public class Producto {
 
+	//private static final long serialVersionUID = 1L;
+	
     @Id
     @Column(name = "idProducto",nullable = false)
     private String idProducto;
@@ -26,7 +28,16 @@ public class Producto {
 
     @Column(name = "stock")
     private int stock;
+    
+    
+    
+    
+    
+    
+    
 
+
+    
 	public String getIdProducto() {
 		return idProducto;
 	}

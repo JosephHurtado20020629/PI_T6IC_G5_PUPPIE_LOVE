@@ -67,6 +67,7 @@ public class ProductoController {
         } catch (Exception e) {
             model.addAttribute("error","Error al registrar producto");
         }
+        
         return "crudproductos";
     }
 
@@ -80,9 +81,8 @@ public class ProductoController {
     @PostMapping("editar")
     public String buscarEditarProd(@ModelAttribute Producto p, Model model) {
         System.out.println(p);
-        model.addAttribute("Producto", productoRepository.findById(p.getIdProducto()));
-        model.addAttribute("lstCategorias", repoc.findAll());
-        model.addAttribute("lstProveedores", repop.findAll());
+        model.addAttribute("producto", productoRepository.findById(p.getIdProducto()));
+        model.addAttribute("lstCategorias", repoc.findAll());        
         System.out.println(p);
         return "crudproductos";
     }

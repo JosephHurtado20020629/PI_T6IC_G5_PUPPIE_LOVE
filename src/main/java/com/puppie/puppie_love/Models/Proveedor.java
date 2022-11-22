@@ -13,19 +13,19 @@ import javax.persistence.Table;
 public class Proveedor {
 
    @Id
-   @Column(name = "ID_PROVEEDOR")
+   @Column(name = "idProveedor")
     private String idProveedor;
 
-   @Column(name = "NOMBRE_CIA")
+   @Column(name = "nomCia")
     private String nombreCia;
 
-   @Column(name = "NOMBRE_CONTACTO")
+   @Column(name = "nomContac")
     private String nombreContacto;
 
-   @Column(name = "DIRECCION")
+   @Column(name = "direccion")
     private String direccion;
 
-   @Column(name = "TELEFONO")
+   @Column(name = "telefono")
     private String telefono;
 
 }
