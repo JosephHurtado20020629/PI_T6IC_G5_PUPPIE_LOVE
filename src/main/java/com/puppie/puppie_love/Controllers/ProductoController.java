@@ -78,16 +78,16 @@ public class ProductoController {
         return "listadoProductos";
     }
 
-    @PostMapping("editar")
-    public String buscarEditarProd(@ModelAttribute Producto p, Model model) {
-        System.out.println(p);
-        model.addAttribute("producto", productoRepository.findById(p.getIdProducto()));
+    @PostMapping("/editar")
+    public String EditarProd(@ModelAttribute Producto producto, Model model) {
+        //System.out.println(producto);
+        model.addAttribute("producto", productoRepository.findById(producto.getIdProducto()));
         model.addAttribute("lstCategorias", repoc.findAll());        
-        System.out.println(p);
+        System.out.println(producto);
         return "crudproductos";
     }
 
-    @GetMapping("eliminar")
+    @PostMapping("eliminar")
     public String EliminarUsua(@ModelAttribute Producto p, Model model) {
         productoRepository.delete(p);
 		return "crudproductos";

@@ -84,7 +84,6 @@ CREATE TABLE PEDIDOS
 	direcDestinatario    varchar(60) null
 );
 
-<<<<<<< HEAD
 create table detallePedidos
 (
 	idPedido 	int 
@@ -113,7 +112,6 @@ create table DETALLE_PEDIDOS
 );
 
 
->>>>>>> c932617a571330b539571598c70e3dd8e3c06326
 insert into ROLES (descripcion) values ('Usuario');
 insert into ROLES (descripcion) values ('Administrador');
 
@@ -268,9 +266,9 @@ insert into SEDES(idSede,nomSede,direcSede,numSede) values ('S003','PuppiesLove-
 
 SELECT * FROM SEDES;
 
-<<<<<<< HEAD
+
 INSERT INTO `pedidos` VALUES (1,1,'S001','2017-07-15 00:00:00','2017-07-25 00:00:00','2017-07-17 00:00:00','Maria Salazar','Av. La Floresta 452'),(2,2,'S001','2017-10-23 00:00:00','2017-11-07 00:00:00','2017-10-25 00:00:00','Luis Hernandez','Calle Jaen 132'),(3,3,'S002','2019-05-01 00:00:00','2019-05-30 00:00:00','2019-05-03 00:00:00','Laura Torres','Calle 42'),(4,4,'S003','2020-08-15 00:00:00','2020-08-28 00:00:00','2020-08-17 00:00:00','Sara Navarro','Av. Moche 589'),(5,5,'S002','2020-03-23 00:00:00','2020-04-15 00:00:00','2020-03-25 00:00:00','Carlos Salinas','Calle Valdivia 254'),(6,6,'S002','2020-07-18 00:00:00','2020-07-30 00:00:00','2020-07-20 00:00:00','Jose Setien','Av. Javier Prado 1256'),(7,7,'S003','2020-08-22 00:00:00','2020-09-15 00:00:00','2020-08-24 00:00:00','Manuel Alcaraz','Av. Jorge chavez 412'),(8,8,'S003','2020-01-30 00:00:00','2020-02-25 00:00:00','2020-02-01 00:00:00','Jorge Alcocer','Calle Jose Calama 111'),(9,9,'S001','2019-11-13 00:00:00','2020-01-25 00:00:00','2020-11-15 00:00:00','Paloma Rosas','Parque 52'),(10,10,'S002','2019-12-22 00:00:00','2020-01-30 00:00:00','2019-12-27 00:00:00','Rafael Viveros','Calle Ronda 351'),(11,11,'S001','2020-02-12 00:00:00','2020-03-28 00:00:00','2020-02-15 00:00:00','Pablo Maldonado','Calle de las Pizzas 532'),(12,12,'S001','2019-07-03 00:00:00','2019-07-25 00:00:00','2017-07-07 00:00:00','Ruben Sanchez','Calle Manco Capac 241');
-=======
+
 
 insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('1','PC50','S001',10,'2017-07-15','2017-07-25','2017-07-17','Maria Salazar','Av. La Floresta 452');
 insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('2','PC02','S001',15,'2017-10-23','2017-11-07','2017-10-25','Luis Hernandez','Calle Jaen 132');
@@ -284,7 +282,7 @@ insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_
 insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('10','PC18','S002',30,'2019-12-22','2020-01-30','2019-12-27','Rafael Viveros','Calle Ronda 351');
 insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('11','PC11','S001',12,'2020-02-12','2020-03-28','2020-02-15','Pablo Maldonado','Calle de las Pizzas 532');
 insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('12','PC12','S001',3,'2019-07-03','2019-07-25','2017-07-07','Ruben Sanchez','Calle Manco Capac 241');
->>>>>>> c932617a571330b539571598c70e3dd8e3c06326
+
 
 SELECT * FROM PEDIDOS;
 
