@@ -12,7 +12,7 @@ import com.puppie.puppie_love.Models.DetallePedido;
 @Repository
 public interface IDetallePedidosRepository extends JpaRepository<DetallePedido,String > {
 	
-	@Query(value = "select * from detallepedidos p  group by (p.idProducto) order by sum(p.cantidad) desc limit 6",nativeQuery = true)
+	@Query(value = "select * from DETALLE_PEDIDOS p  group by (p.idProducto) order by sum(p.cantidad) desc limit 6",nativeQuery = true)
      List<DetallePedido> masVendidos();
 	
 	

@@ -2,11 +2,10 @@ package com.puppie.puppie_love.Models;
 
 import lombok.Data;
 import javax.persistence.*;
-import java.sql.Date;
 
 @Entity
 @Data
-@Table(name = "detallePedidos")
+@Table(name = "DETALLE_PEDIDOS")
 public class DetallePedido {
 
 	

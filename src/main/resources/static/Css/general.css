@@ -263,6 +263,9 @@ aside ul .feat-show.show{
 aside ul .tiendas-show.show1{
   display: block;
 }
+aside ul .mantenimiento-show.show1{
+  display: block;
+}
 aside ul ul li{
   line-height: 42px;
   border-top: none;

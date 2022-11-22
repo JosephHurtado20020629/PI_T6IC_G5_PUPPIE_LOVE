@@ -2,7 +2,6 @@ package com.puppie.puppie_love.Controllers;
 
 import com.puppie.puppie_love.Models.Cliente;
 import com.puppie.puppie_love.Models.DetallePedido;
-import com.puppie.puppie_love.Models.Pedido;
 import com.puppie.puppie_love.Models.Producto;
 import com.puppie.puppie_love.Repositorys.IClienteRepository;
 import com.puppie.puppie_love.Repositorys.IDetallePedidosRepository;
@@ -10,10 +9,8 @@ import com.puppie.puppie_love.Repositorys.IPedidosRepository;
 import com.puppie.puppie_love.Repositorys.IProductoRepository;
 import com.puppie.puppie_love.Utils.ConstantsPage;
 
-import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;

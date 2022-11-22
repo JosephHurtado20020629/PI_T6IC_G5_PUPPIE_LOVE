@@ -8,8 +8,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "PRODUCTOS")
 public class Producto {
-
-	//private static final long serialVersionUID = 1L;
 	
     @Id
     @Column(name = "idProducto",nullable = false)
@@ -28,16 +26,7 @@ public class Producto {
 
     @Column(name = "stock")
     private int stock;
-    
-    
-    
-    
-    
-    
-    
 
-
-    
 	public String getIdProducto() {
 		return idProducto;
 	}
@@ -62,12 +51,12 @@ public class Producto {
 		this.categoria = categoria;
 	}
 
-	public String getId_Categoria() {
+	public String getIdCategoria() {
 		return idCategoria;
 	}
 
-	public void setId_Categoria(String id_Categoria) {
-		this.idCategoria = id_Categoria;
+	public void setIdCategoria(String idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 
 	public double getPrecioUnidad() {
@@ -85,5 +74,6 @@ public class Producto {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-
+    
+   
 }

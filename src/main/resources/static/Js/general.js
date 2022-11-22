@@ -106,6 +106,10 @@ $(".tiendas-btn").click(function () {
   $("aside ul .tiendas-show").toggleClass("show1");
   $("aside ul .second").toggleClass("rotate");
 });
+$(".mantenimiento-btn").click(function () {
+  $("aside ul .mantenimiento-show").toggleClass("show1");
+  $("aside ul .third").toggleClass("rotate");
+});
 $("aside ul li").click(function () {
   $(this).addClass("active").siblings().removeClass("active");
 });
