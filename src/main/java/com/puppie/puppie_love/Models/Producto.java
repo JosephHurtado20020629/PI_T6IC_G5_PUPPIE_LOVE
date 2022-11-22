@@ -23,7 +23,7 @@ public class Producto {
     private Categoria categoria;
     private String idCategoria;
     
-    @Column(name = "precio")
+    @Column(name = "precioUnidad")
     private double precioUnidad;
 
     @Column(name = "stock")

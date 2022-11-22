@@ -48,7 +48,7 @@ public class ServicioController {
             case 1:
                 nombre = Enums.CATEGORIAS.ADOPCION.getNombreCategoria();
                 break;
-            case 5:
+            case 2:
                 nombre = Enums.CATEGORIAS.PERROS_GUIA.getNombreCategoria();
                 break;
         }

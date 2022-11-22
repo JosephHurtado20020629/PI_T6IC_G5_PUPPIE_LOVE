@@ -10,7 +10,7 @@
 <body>
 	<div class="container">
 		<h1>Mantenimiento de productos</h1>
-		<form action="/product/grabar" method="post" th:object="${producto}">
+		<form th:action="@{/product/grabar}" method="post" th:object="${producto}">
 		
 			<div class="form-group">
 				<label for="inputAddress">Codigo</label>
