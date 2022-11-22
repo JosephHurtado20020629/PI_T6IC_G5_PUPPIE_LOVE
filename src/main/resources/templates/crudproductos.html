@@ -11,7 +11,7 @@
 	<div class="container">
 		<h1>Mantenimiento de productos</h1>
 		<form th:action="@{/product/grabar}" method="post" th:object="${producto}">
-		
+
 			<div class="form-group">
 				<label for="inputAddress">Codigo</label>
 				<input th:field="*{idProducto}" type="text" class="form-control" id="inputAddress"
@@ -35,36 +35,24 @@
 				</div>
 			</div>
 			<div class="form-row">
-				
 				<div class="form-group col-md-4">
 					<label for="inputCat">Categoria</label>
-						<select id="inputCat" class="form-control" th:field="*{idCategoria}">
-							<option value="-1"> Seleccione...</option>						
-							<option th:each="c : ${lstCategorias}" th:value="${c.idCategoria}"
-								th:text="${c.nombreCategoria}"></option>
-						</select>
+					<select id="inputCat" class="form-control" th:field="*{idCategoria}">
+						<option value="-1"> Seleccione...</option>
+						<option th:each="c : ${lstCategorias}" th:value="${c.idCategoria}"
+							th:text="${c.nombreCategoria}"></option>
+					</select>
 				</div>
-<!--				<div class="form-group col-md-4">-->
-<!--					<label for="inputProv">Proveedor</label>-->
-<!--						<select id="inputProv" class="form-control" th:field="*{idProveedor}">-->
-<!--							<option value="-1"> Seleccione...</option>-->
-
-<!--							<option th:each="p : ${lstProveedores}" th:value="${p.idProveedor}"-->
-<!--								th:text="${p.nombreCia}"></option>-->
-<!--						</select>-->
-<!--				</div>-->
-
-
 			</div>
 			<button type="submit" class="btn btn-primary">Registrar</button>
-			
-			<button type="reset" class="btn btn-primary">Limpiar</button>
-			
-			<a href ="/product/listar" class = "btn btn-primary">Listado</a>
+
+			<a href="/product/cargar" class="btn btn-primary">Limpiar</a>
+
+			<a href="/product/listar" class="btn btn-primary">Listado</a>
 		</form>
 		<br>
-		<div th:if = "${successful}  != null" class="alert alert-success" role="alert" th:text = "${successful}"></div>
-		<div th:if = "${error}  != null" class="alert alert-danger" role="alert" th:text = "${error}"></div>
+		<div th:if="${successful}  != null" class="alert alert-success" role="alert" th:text="${successful}"></div>
+		<div th:if="${error}  != null" class="alert alert-danger" role="alert" th:text="${error}"></div>
 	</div>
 </body>
 
