@@ -84,6 +84,7 @@ CREATE TABLE PEDIDOS
 	direcDestinatario    varchar(60) null
 );
 
+
 create table detallePedidos
 (
 	idPedido 	int 
@@ -98,9 +99,8 @@ create table detallePedidos
 	
 );
 
-INSERT INTO `detallepedidos` VALUES (1,'PC01',2,20.90,41.80),(1,'PC10',5,20.00,100.00);
 
-    
+
 
 create table DETALLE_PEDIDOS
 (
@@ -110,7 +110,6 @@ create table DETALLE_PEDIDOS
 	pUnitario 	decimal(5,2),
 	total 		decimal(5,2)
 );
-
 
 insert into ROLES (descripcion) values ('Usuario');
 insert into ROLES (descripcion) values ('Administrador');
@@ -285,5 +284,4 @@ insert into PEDIDOS(codCliente,idProducto,idSede,cant_x_unidad,fech_pedido,fech_
 
 
 SELECT * FROM PEDIDOS;
-
 
