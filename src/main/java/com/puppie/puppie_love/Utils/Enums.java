@@ -11,7 +11,7 @@ public enum CATEGORIAS {
         ALIMENTOS_PARA_GATOS(4, "Alimentos para gatos"),
         PERROS_GUIA(2,"Perros guía"),
 	    JUGUETES(6,"Juguetes"),
-	    CASAS_y_CAMAS(7,"Casas y camas");
+	    CAMAS_Y_CASAS(7,"Camas y casas");
         private Integer idCategoria;
         private String nombreCategoria;
 

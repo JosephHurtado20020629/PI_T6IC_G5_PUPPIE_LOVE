@@ -9,6 +9,8 @@ import com.puppie.puppie_love.Models.Producto;
 
 @Repository
 public interface IProductoRepository extends JpaRepository<Producto,String> {
-
+	
     List<Producto> findAllByCategoria_NombreCategoria(String nombreCategoria);
 }
+
+

@@ -1,8 +1,7 @@
 //Declarando variables
 var cjbusqueda = document.getElementById("caja-busqueda");
 var text = document.getElementById("buscador");
-var btnbusqueda = document.getElementById("btn-buscar");
-var resultados = document.getElementById("resultados");
+
 var user = document.getElementById("btn-usuario");
 var username = document.getElementById("usuario");
 var nom = document.getElementById("nombre");
@@ -15,10 +14,6 @@ var mujer = document.getElementById("mujer");
 var mensaje=document.getElementById("msj")
 
 //Llamando Funciones
-btnbusqueda.addEventListener("click", abrir);
-btnbusqueda.addEventListener("click", userup);
-btnbusqueda.addEventListener("dblclick", Cerrar);
-text.addEventListener("keyup", buscar);
 user.addEventListener("click", userdown);
 user.addEventListener("click", Cerrar);
 user.addEventListener("dblclick", userup);
