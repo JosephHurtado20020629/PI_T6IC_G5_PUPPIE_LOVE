@@ -25,83 +25,82 @@
     <nav th:fragment="nav">
         <img class="logo-blanco" src="../icons/LogoBlanco.svg" alt="No se Encuentra"/>
         <div id="herramientas">
-            <div id="caja-busqueda">
-                <input type="text" id="buscador" placeholder="Buscar..." autocomplete="off"/>
-                <div class="btn-buscar" id="btn-buscar">
-                    <i class="fas fa-search"></i>
-                    <div id="resultados">
-                    </div>
-                </div>
-            </div>
+            
             <div id="btn-usuario" class="usuario">
                 <i class="far fa-user-circle icons"></i>
                 <div id="usuario">
                     <i class="fas fa-caret-up"></i>
                     <h4 id="msj">
-                        Bienvenido a<br/>Puppie Love
+                        Bienvenido a<br/>Puppies Love
                     </h4>
                     <a href="javascript: document.logoutForm.submit() ">
-                        <img src="../icons/Grupo 64.svg" id="hombre" alt="No se encuentra la imagen"/></a>
+                        <img src="../icons/Hombre.png" id="hombre" alt="No se encuentra la imagen"/></a>
                     <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
                     </form>
+                    <h3 th:text="${session.cliente.nombre + ' ' + session.cliente.apellido}" id="nombre"></h3>
                      </div>
         </div>
             <div id="carrito">
                 <i class="fas fa-shopping-cart icons"></i> <b id="ncompras">0</b>
+                
             </div>
+            
     </nav>
 </header>
 <main>
+
     <section>
         <div id="baner" th:fragment="banner">
             <img id="img-baner" src="../icons/Banner1.svg" alt="No se Encuentra "/>
             <i class="fas fa-circle indice"></i> <i class="fas fa-circle indice"></i>
             <i class="fas fa-circle indice"></i>
         </div>
+        
         <h2 id="title-cat">Categorias</h2>
-        <div id="categoria">
+        <div id="categoria" class="ds-fxW">
             <div class="cat">
-                <a th:href="@{/product/1}"><img src="../icons/Imagen 1.png" alt="No se encuentra la imagen"/>
+                <a th:href="@{/service/1}"><img src="../icons/adoptarf.jpg" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Adopción</h2>
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/5}"><img src="../icons/F1.png" alt="No se encuentra la imagen"/>
+                <a th:href="@{/service/2}"><img src="../icons/perro_guia.png" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Perros Guía</h2>
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/3}"><img src="../icons/Imagen 2.png" alt="No se encuentra la imagen"/>
+                <a th:href="@{/product/3}"><img src="../icons/gato.jpg" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Alimentos para gatos</h2>
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/2}"><img src="../icons/C4.png" alt="No se encuentra la imagen"/>
+                <a th:href="@{/product/4}"><img src="../icons/alimento1.png" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Alimentos para perros</h2>
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/4}"><img src="../icons/PS3.png" alt="No se encuentra la imagen"/>
+                <a th:href="@{/product/5}"><img src="../icons/farmacia2.jpg" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Farmacia</h2>
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/4}"><img src="../icons/PS3.png" alt="No se encuentra la imagen"/>
+                <a th:href="@{/product/6}"><img src="../icons/juguetes.jpg" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Juguetes</h2>
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/4}"><img src="../icons/PS3.png" alt="No se encuentra la imagen"/>
+                <a th:href="@{/product/7}"><img src="../icons/juguetes.jpg" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Camas y casas</h2>
                 </a>
-            </div>
+            </div> 
+          
         </div>
         <h2 id="title-vent">
             <i class="fab fa-hotjar"></i>
             Mas Vendidos
         </h2>
         <div id="Ventas">
-            <div class="row">
+            <div class="row ds-fx">
             <figure th:each="p:${lstmasVendidos}" class="compras">
                     <img th:src="@{${'img/' + p.idProducto + '.png'}}" alt=""/>
                     <h5 th:text="${p.nombreProducto}"></h5>
@@ -114,11 +113,15 @@
                 </figure>
             </div>
         </div>
+        
         <div id="mensaje">
-            <iframe width="500" height="360" src="https://www.youtube.com/embed/vWsuSQVs8X0" frameborder="0"
+        <h2>Compra Resposablemente</h2>
+            <iframe width="500" height="300" src="https://www.youtube.com/embed/vWsuSQVs8X0" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
+
             <h2>Compra Resposablemente</h2>
+
         </div>
     </section>
     <div class="btn">
@@ -131,9 +134,13 @@
             <li><a href="#" class="feat-btn"><i class="fas fa-tags"></i>Categorias
                 <span class="fas fa-caret-down first"></span> </a>
                 <ul class="feat-show">
-                    <li><a th:href="@{/product/5}">Tiendas</a></li>
-                    <li><a th:href="@{/product/3}">Nosotros</a></li>
-                    <li><a th:href="@{/product/1}">Contactanos</a></li>
+                    <li><a th:href="@{/service/1}">Adopción</a></li>
+                    <li><a th:href="@{/service/2}">Perros guía</a></li>
+                    <li><a th:href="@{/product/3}">Alimentos gatos</a></li>
+                    <li><a th:href="@{/product/4}">Alimentos perros</a></li>
+                    <li><a th:href="@{/product/5}">Farmacia</a></li>
+                    <li><a th:href="@{/product/6}">Juguetes</a></li>
+                    <li><a th:href="@{/product/7}">Casas y camas</a></li>
                 </ul></li>
             <li><a href="#" class="tiendas-btn"><i class="fas fa-store"></i>Tiendas
                 <span class="fas fa-caret-down second"></span> </a>
@@ -142,23 +149,54 @@
                     <li><a th:href="@{/shop/S002}">Breña</a></li>
                     <li><a th:href="@{/shop/S003}">Miraflores</a></li>
                 </ul></li>
+				<li><a href="#" class="mantenimiento-btn"><i class="fas fa-store"></i>Mantenimiento
+						<span class="fas fa-caret-down third"></span> </a>
+					<ul class="mantenimiento-show">
+						<li><a href="/product/cargar">Productos</a></li>
+						<li><a href="/usuario/cargar">Clientes</a></li>
+					</ul>
+				</li>
         </ul>
     </aside>
 </main>
 <footer th:fragment="footer">
+<div class="wancho" style="margin: auto;">
+ <div class="footerWrap">
+ <div class="footerItem">
     <ul>
         <h2>Tiendas</h2>
-        <li>San Miguel</li>
-        <li>Breña</li>
-        <li>Miraflores</li>
+        
+		<li>
+			<h3>San Miguel</h3>
+		</li>
+		<li>
+			<h3>Breña</h3>
+		</li>
+		<li>
+			<h3>Miraflores</h3>
+		</li>
     </ul>
+ </div>
+ <div class="footerItem">
     <ul>
         <h2>Contactanos</h2>
-        <li>Telf : 989899989</li>
-        <li>Whatsapp : 987653678</li>
-        <li>Correo : PuppieLove@cibertec.com</li>
+        
+		<li>
+			<h3>Telf : 989899989</h3>
+		</li>
+		<li>
+			<h3>Whatsapp : 987653678</h3>
+		</li>
+		<li>
+			<h3>Correo : Bluemoon@cibertec.com</h3>
+		</li>
     </ul>
+ </div>
+ <div class="footerItem">
     <img class="logo-blanco2" src="../icons/LogoBlanco.svg" alt="No se Encuentra"/>
+ </div>
+    </div>
+</div>
 </footer>
 
 <script>
