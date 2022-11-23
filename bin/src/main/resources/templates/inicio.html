@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8"/>
@@ -198,6 +199,20 @@
     </div>
 </div>
 </footer>
+
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "f828dfac-8ea3-4b70-98a6-d33c85aa538b", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "a315835a-84fa-4dec-a36d-e8042c2b5be8", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
 
 <script>
     var ruta = "../";
