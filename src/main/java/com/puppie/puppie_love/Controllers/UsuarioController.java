@@ -4,7 +4,6 @@ package com.puppie.puppie_love.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,7 +14,6 @@ import com.puppie.puppie_love.Models.Usuario;
 import com.puppie.puppie_love.Repositorys.IRolesRepository;
 import com.puppie.puppie_love.Repositorys.IUsuarioRepository;
 
-import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
