@@ -93,6 +93,8 @@ public class ProductoController {
 		return "crudproductos";
     }
 
+
+
     private String parseCategory(Integer idCategory) {
         String nombre = null;
         switch (idCategory) {
