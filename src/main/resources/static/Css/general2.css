@@ -337,5 +337,13 @@ footer ul{
     margin: 0px auto;
 }
 
+#imgDetalle img {
+	width: 152px;
+	height: 162px;
+}
+.return {
+	display: flex;
+    justify-content: flex-end;
+}
 
 

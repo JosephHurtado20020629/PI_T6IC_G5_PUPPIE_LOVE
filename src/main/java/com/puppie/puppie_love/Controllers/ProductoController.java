@@ -178,4 +178,10 @@ public class ProductoController {
         }
         return nombre;
     }
+    
+    @GetMapping("detalleCompra")
+    public String carrito(Model model) {
+        model.addAttribute("producto", new Producto());
+        return "resumenCompra";
+    }
 }

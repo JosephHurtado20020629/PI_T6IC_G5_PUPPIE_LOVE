@@ -42,8 +42,10 @@
                      </div>
         </div>
             <div id="carrito">
-                <i class="fas fa-shopping-cart icons"></i> <b id="ncompras">0</b>
-                
+            <a th:href="@{/product/detalleCompra}">
+                <i class="fas fa-shopping-cart icons"></i> 
+                <!--<b id="ncompras">0</b>-->
+            </a>
             </div>
             
     </nav>
@@ -90,7 +92,7 @@
                 </a>
             </div>
             <div class="cat">
-                <a th:href="@{/product/7}"><img src="../icons/juguetes.jpg" alt="No se encuentra la imagen"/>
+                <a th:href="@{/product/7}"><img src="../icons/casas-camas.png" alt="No se encuentra la imagen"/>
                     <h2 class="h2-cat">Camas y casas</h2>
                 </a>
             </div> 
@@ -151,7 +153,7 @@
 						<span class="fas fa-caret-down third"></span> </a>
 					<ul class="mantenimiento-show">
 						<li><a href="/product/cargar">Productos</a></li>
-						<li><a href="/usuario/cargar">Clientes</a></li>
+						<li><a href="/usuario/cargar">Usuarios</a></li>
 					</ul>
 				</li>
 				<li class="active"><a th:href="@{/nosotros}">

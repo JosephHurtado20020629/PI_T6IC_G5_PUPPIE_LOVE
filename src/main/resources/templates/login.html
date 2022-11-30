@@ -45,7 +45,7 @@
             
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <button type="submit" class="btn" value="login">Ingresar</button>
-            <a  class="btn" style="text-decoration: none;padding: 4%" th:href="@{/user/cargar}">Registrar</a>
+            <a  class="btn" style="text-decoration: none;padding: 4%" th:href="@{/usuarios/cargar}">Registrar</a>
             <p style="color: red" th:if="${error}" id="error">Usuario o Contraseña invalidos</p>
         </form>
     </div>
