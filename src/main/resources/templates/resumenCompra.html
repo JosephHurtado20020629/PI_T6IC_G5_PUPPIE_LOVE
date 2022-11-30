@@ -81,7 +81,11 @@
 
 				<!-- cantidad -->
 				<div class="col col-sm-4 col-lg-4">
-					<input type="number" th:value="${carrito.cantidad}">
+					<div class="count">
+						<button id="btn-minus"><i class="fa fa-minus"></i></button>
+						<input type="text" th:value="${carrito.cantidad}">
+						<button id="btn-plus"><i class="fa fa-plus"></i></button>
+					</div>
 				</div>
 
 
