@@ -75,7 +75,7 @@
   border-radius:25px ;
   /* margin: 15px; */
 }
-.compras input{
+.compras input,button{
   width: 120px;
   height: 40px;
   color:  #E44949;
@@ -98,7 +98,7 @@
   /* margin-top: 25vh; */
 }
 
-.compras input:hover {
+.compras input:hover,button:hover {
   color: white;
   background-color: #D92109;
   font-family: 'Poppins', sans-serif

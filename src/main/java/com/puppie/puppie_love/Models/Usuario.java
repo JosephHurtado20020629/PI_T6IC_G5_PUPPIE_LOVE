@@ -2,12 +2,7 @@ package com.puppie.puppie_love.Models;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "USUARIO")
@@ -34,7 +29,6 @@ public class Usuario {
     @JoinColumn(name = "idRoles",insertable = false,updatable = false)
     private Rol rol;
 
-    //private String idRol;
 
 
     public Usuario(int codUsuario, String nombre, String apellido, String username, String contraseña,

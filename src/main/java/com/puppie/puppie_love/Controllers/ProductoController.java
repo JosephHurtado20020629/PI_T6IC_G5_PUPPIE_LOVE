@@ -1,18 +1,22 @@
 package com.puppie.puppie_love.Controllers;
 
 import com.puppie.puppie_love.Models.Categoria;
+import com.puppie.puppie_love.Models.DetallePedido;
 import com.puppie.puppie_love.Models.Producto;
 import com.puppie.puppie_love.Repositorys.ICategoriaRepository;
 import com.puppie.puppie_love.Repositorys.IProductoRepository;
 import com.puppie.puppie_love.Repositorys.IProveedorRepository;
 import com.puppie.puppie_love.Utils.Enums;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequestMapping(value = "product")
@@ -31,7 +35,7 @@ public class ProductoController {
     @RequestMapping(value = "/{idCategory}", method = RequestMethod.GET)
     public String listarProductos(@PathVariable("idCategory") Integer idCategory, Model model) {
         //Obtengo el nombre de la categoria
-        String categoryName=parseCategory(idCategory);
+        String categoryName = parseCategory(idCategory);
         List<Producto> listProducts = new ArrayList<Producto>();
 
         //busco productos segun su categoria
@@ -40,11 +44,11 @@ public class ProductoController {
 
         //obtengo los nombres de las subcategorias
         for (Producto prod : listProducts) {
-            if(!listCategorys.contains(prod.getCategoria())) listCategorys.add(prod.getCategoria());
+            if (!listCategorys.contains(prod.getCategoria())) listCategorys.add(prod.getCategoria());
         }
         model.addAttribute("lstCategorys", listCategorys);
         model.addAttribute("lstProducts", listProducts);
-        model.addAttribute("categoryName",categoryName);
+        model.addAttribute("categoryName", categoryName);
         return "productos";
     }
 
@@ -63,11 +67,11 @@ public class ProductoController {
         model.addAttribute("lstProveedores", repop.findAll());
         try {
             productoRepository.save(producto);
-            model.addAttribute("successful","PROCESO REGISTRADO CON EXITO");
+            model.addAttribute("successful", "PROCESO REGISTRADO CON EXITO");
         } catch (Exception e) {
-            model.addAttribute("error","Error al registrar producto");
+            model.addAttribute("error", "Error al registrar producto");
         }
-        
+
         return "crudproductos";
     }
 
@@ -82,7 +86,7 @@ public class ProductoController {
     public String EditarProd(@ModelAttribute Producto producto, Model model) {
         //System.out.println(producto);
         model.addAttribute("producto", productoRepository.findById(producto.getIdProducto()));
-        model.addAttribute("lstCategorias", repoc.findAll());        
+        model.addAttribute("lstCategorias", repoc.findAll());
         System.out.println(producto);
         return "crudproductos";
     }
@@ -90,15 +94,72 @@ public class ProductoController {
     @PostMapping("eliminar")
     public String EliminarUsua(@ModelAttribute Producto p, Model model) {
         productoRepository.delete(p);
-		return "crudproductos";
+        return "crudproductos";
     }
 
+    @ResponseBody
+    @GetMapping("/add-cart/{idProducto}")
+    public ResponseEntity<?> addCart(@PathVariable("idProducto") String idProducto, HttpServletRequest request) {
+        try {
+
+            if (Objects.isNull(idProducto)) return ResponseEntity.badRequest().build();
+            List<DetallePedido> detalle = (List<DetallePedido>) request.getSession().getAttribute("carrito");
+            DetallePedido found = null;
+            if (Objects.nonNull(detalle)) {
+                found = detalle.stream().filter(p -> p.getProducto().getIdProducto().equals(idProducto)).findFirst().orElse(null);
+            } else {
+                detalle = new ArrayList<DetallePedido>();
+            }
+            if (Objects.nonNull(found)) {
+                int index = detalle.indexOf(found);
+                found.setCantidad(found.getCantidad() + 1);
+                detalle.set(index, found);
+            } else {
+                Producto product = productoRepository.findById(idProducto).orElse(null);
+                if (Objects.nonNull(product)) System.out.println(product.toString());
+                detalle.add(DetallePedido.builder().producto(product).pUnitario(product.getPrecioUnidad()).cantidad(1).total(product.getPrecioUnidad()).build());
+
+            }
+            request.getSession().setAttribute("carrito", detalle);
+            return ResponseEntity.ok(detalle);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @GetMapping("/cart")
+    public String cart(){
+        return "login";
+    }
+    @ResponseBody
+    @GetMapping("/delete-cart/{idProducto}")
+    public ResponseEntity<?> deleteCart(@PathVariable("idProducto") String idProducto, HttpServletRequest request) {
+        try {
+            List<DetallePedido> detalle = (List<DetallePedido>) request.getSession().getAttribute("carrito");
+            DetallePedido found = null;
+            if (Objects.nonNull(detalle))
+                found = detalle.stream().filter(p -> p.getProducto().getIdProducto().equals(idProducto)).findFirst().orElse(null);
+            else detalle = new ArrayList<DetallePedido>();
+            if (found != null) {
+                if (found.getCantidad() == 1) detalle.remove(found);
+                else {
+                    int index = detalle.indexOf(found);
+                    found.setCantidad(found.getCantidad() - 1);
+                    detalle.set(index, found);
+                    request.getSession().setAttribute("carrito", detalle);
+                }
+            }
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 
 
     private String parseCategory(Integer idCategory) {
         String nombre = null;
         switch (idCategory) {
-            
+
             case 3:
                 nombre = Enums.CATEGORIAS.ALIMENTOS_PARA_GATOS.getNombreCategoria();
                 break;

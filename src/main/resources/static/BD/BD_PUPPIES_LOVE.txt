@@ -1,6 +1,3 @@
-create database BD_PUPPIES_LOVE;
-use  BD_PUPPIES_LOVE;
-
 CREATE TABLE ROLES
 (
     idRoles      int auto_increment primary key,
@@ -16,19 +13,6 @@ CREATE TABLE ROLES
 	password       varchar (20) not null,
     idRoles        int  null references ROLES
 );
-
-CREATE TABLE CLIENTE
-(
-    codCliente     int auto_increment primary key,
-    nombre         varchar (20) not null,
-	apellido       varchar (20) not null,
-	username       varchar (20) not null,
-	contraseña     varchar (60) not null,
-	nroDoc         varchar (20) not null,
-	telefono       varchar (20) not null,
-    direccion      varchar (50) not null
-);
-
 
 CREATE  TABLE CATEGORIAS
 (
@@ -73,18 +57,15 @@ CREATE TABLE SEDES
 CREATE TABLE PEDIDOS
 (
     idPedido             int auto_increment primary key,
-	codCliente           int null references CLIENTE,
---	idProducto           char (5) null references PRODUCTOS,
+	codUsuario           int null references USUARIO,
+	idProducto           char (5) null references PRODUCTOS,
 	idSede               char (5) not null references SEDES,
---	cant_x_unidad        int not null,
 	fech_pedido          datetime not null,
 	fech_aprox_entrega   datetime null,
 	fech_envio           datetime null,
 	destinatario         varchar(40) null,
 	direcDestinatario    varchar(60) null
 );
-
-
 
 create table DETALLE_PEDIDOS
 (
@@ -94,6 +75,7 @@ create table DETALLE_PEDIDOS
 	pUnitario 	decimal(5,2),
 	total 		decimal(5,2)
 );
+
 
 insert into ROLES (descripcion) values ('Usuario');
 insert into ROLES (descripcion) values ('Administrador');
@@ -114,20 +96,7 @@ insert into USUARIO(nombre,apellido,username,password,idRoles) values ('Rafael',
 SELECT * FROM USUARIO;
 
 
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Maria','Salazar','Maria101','Maria123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Luis','Hernandez','Luis102','Luis123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Laura','Torres','Laura103','Laura123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Sara','Navarro','Sara104','Sara123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Carlos','Salinas','Carlos105','Carlos123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Jose','Setien','Jose106','Jose123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Manuel','Alcaraz','Manuel107','Manuel123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Jorge','Alcocer','Jorge108','Jorge123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Paloma','Rosas','Paloma109','Paloma123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Rafael','Viveros','Rafael110','Rafael123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Pablo','Maldonado','Pablo111','Pablo123','12346678', '987654321','Av. La Floresta 452');
-insert into CLIENTE(nombre,apellido,username,contraseña,nroDoc,telefono,direccion) values ('Ruben','Sanchez','Ruben112','Ruben123','12346678', '987654321','Av. La Floresta 452');
 
-SELECT * FROM CLIENTE;
 
 insert into CATEGORIAS(idCategoria,nomCategoria) values ('CT1','Adopcion');
 insert into CATEGORIAS(idCategoria,nomCategoria) values ('CT2','Perros Guia');
@@ -250,9 +219,19 @@ insert into SEDES(idSede,nomSede,direcSede,numSede) values ('S003','PuppiesLove-
 SELECT * FROM SEDES;
 
 
-INSERT INTO `pedidos` VALUES (1,1,'S001','2017-07-15 00:00:00','2017-07-25 00:00:00','2017-07-17 00:00:00','Maria Salazar','Av. La Floresta 452'),(2,2,'S001','2017-10-23 00:00:00','2017-11-07 00:00:00','2017-10-25 00:00:00','Luis Hernandez','Calle Jaen 132'),(3,3,'S002','2019-05-01 00:00:00','2019-05-30 00:00:00','2019-05-03 00:00:00','Laura Torres','Calle 42'),(4,4,'S003','2020-08-15 00:00:00','2020-08-28 00:00:00','2020-08-17 00:00:00','Sara Navarro','Av. Moche 589'),(5,5,'S002','2020-03-23 00:00:00','2020-04-15 00:00:00','2020-03-25 00:00:00','Carlos Salinas','Calle Valdivia 254'),(6,6,'S002','2020-07-18 00:00:00','2020-07-30 00:00:00','2020-07-20 00:00:00','Jose Setien','Av. Javier Prado 1256'),(7,7,'S003','2020-08-22 00:00:00','2020-09-15 00:00:00','2020-08-24 00:00:00','Manuel Alcaraz','Av. Jorge chavez 412'),(8,8,'S003','2020-01-30 00:00:00','2020-02-25 00:00:00','2020-02-01 00:00:00','Jorge Alcocer','Calle Jose Calama 111'),(9,9,'S001','2019-11-13 00:00:00','2020-01-25 00:00:00','2020-11-15 00:00:00','Paloma Rosas','Parque 52'),(10,10,'S002','2019-12-22 00:00:00','2020-01-30 00:00:00','2019-12-27 00:00:00','Rafael Viveros','Calle Ronda 351'),(11,11,'S001','2020-02-12 00:00:00','2020-03-28 00:00:00','2020-02-15 00:00:00','Pablo Maldonado','Calle de las Pizzas 532'),(12,12,'S001','2019-07-03 00:00:00','2019-07-25 00:00:00','2017-07-07 00:00:00','Ruben Sanchez','Calle Manco Capac 241');
-
-
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('1','S001','2017-07-15','2017-07-25','2017-07-17','Maria Salazar','Av. La Floresta 452');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('2','S001','2017-10-23','2017-11-07','2017-10-25','Luis Hernandez','Calle Jaen 132');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('3','S002','2019-05-01','2019-05-30','2019-05-03','Laura Torres','Calle 42');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('4','S003','2020-08-15','2020-08-28','2020-08-17','Sara Navarro','Av. Moche 589');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('5','S002','2020-03-23','2020-04-15','2020-03-25','Carlos Salinas','Calle Valdivia 254');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('6','S002','2020-07-18','2020-07-30','2020-07-20','Jose Setien','Av. Javier Prado 1256');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('7','S003','2020-08-22','2020-09-15','2020-08-24','Manuel Alcaraz','Av. Jorge chavez 412');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('8','S003','2020-01-30','2020-02-25','2020-02-01','Jorge Alcocer','Calle Jose Calama 111');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('9','S001','2019-11-13','2020-01-25','2020-11-15','Paloma Rosas','Parque 52');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('10','S002','2019-12-22','2020-01-30','2019-12-27','Rafael Viveros','Calle Ronda 351');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('2','S001','2020-02-12','2020-03-28','2020-02-15','Pablo Maldonado','Calle de las Pizzas 532');
+insert into PEDIDOS(codUsuario,idSede,fech_pedido,fech_aprox_entrega,fech_envio,destinatario,direcDestinatario) values('3','S001','2019-07-03','2019-07-25','2017-07-07','Ruben Sanchez','Calle Manco Capac 241');
 
 SELECT * FROM PEDIDOS;
+
 
