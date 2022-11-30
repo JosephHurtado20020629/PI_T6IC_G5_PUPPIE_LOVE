@@ -5,9 +5,20 @@
 	<title>Loves</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="../icons/Favicon.svg" type="image/x-icon" />
+	<script src="../Js/jquery-3.5.1.min.js"></script>
+	<link rel="stylesheet" href="../Css/general2.css" />
+	<link rel="stylesheet" href="../Css/AcercaDe.css" />
+	<script src="../Js/general.js" defer></script>
 </head>
 
 <body>
+	<header>
+		<nav th:insert="inicio :: nav">
+		</nav>
+	</header>
+	<br><br>
+	<br><br><br>
 	<div class="container">
 		<h1>Mantenimiento de Usuarios</h1>
 		<form th:action="@{/usuario/grabar}" method="post" th:object="${usuario}">
@@ -44,8 +55,7 @@
 					<label for="inputRol">Rol</label>
 					<select id="inputRol" class="form-control" th:field="*{rol.idRol}">
 						<option value="-1"> Seleccione...</option>
-						<option th:each="r : ${lstRoles}" th:value="${r.idRol}"
-						 th:text="${r.descripcion}"></option>
+						<option th:each="r : ${lstRoles}" th:value="${r.idRol}" th:text="${r.descripcion}"></option>
 					</select>
 				</div>
 			</div>
@@ -55,11 +65,19 @@
 			<a href="/usuario/cargar" class="btn btn-primary">Limpiar</a>
 
 			<a href="/usuario/listar" class="btn btn-primary">Listado</a>
+
+			<a href="/home" class="btn btn-primary">Regresar</a>
 		</form>
 		<br>
 		<div th:if="${successful}  != null" class="alert alert-success" role="alert" th:text="${successful}"></div>
 		<div th:if="${error}  != null" class="alert alert-danger" role="alert" th:text="${error}"></div>
 	</div>
+	<div th:replace="inicio :: footer"></div>
+
+
+	<script>
+		var ruta = "../";
+	</script>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
