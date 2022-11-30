@@ -67,7 +67,12 @@ function userup() {
 }
 
 function carritoCompras(){
-    window.location.href=window.location.origin+"/product/cart"
+    if(c.innerText>0){
+        window.location.href=window.location.origin+"/product/cart"
+    }else {
+        alert('Carrito Vació')
+    }
+
 }
 
 //Funcion de Suma de Productos

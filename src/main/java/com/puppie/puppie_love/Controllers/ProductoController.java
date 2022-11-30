@@ -129,7 +129,7 @@ public class ProductoController {
 
     @GetMapping("/cart")
     public String cart(){
-        return "login";
+        return "resumenCompra";
     }
     @ResponseBody
     @GetMapping("/delete-cart/{idProducto}")
@@ -177,11 +177,5 @@ public class ProductoController {
                 break;
         }
         return nombre;
-    }
-    
-    @GetMapping("detalleCompra")
-    public String carrito(Model model) {
-        model.addAttribute("producto", new Producto());
-        return "resumenCompra";
     }
 }

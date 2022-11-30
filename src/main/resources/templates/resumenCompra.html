@@ -62,10 +62,10 @@
 				
 				<!-- contenido -->
 <div class="border-bottom">
-	<div class="row d-flex align-items-center flex-column flex-sm-row">
+	<div class="row d-flex align-items-center flex-column flex-sm-row" th:each="carrito :${session.carrito}">
 		<div class="col-sm-5 col-lg-4 col-xl-7 d-flex align-items-center">
 		<div id="imgDetalle">
-			<img src="../img/PC05.png">
+			<img th:src="@{${'../img/' + carrito.producto.idProducto + '.png'}}">
 		</div>
 		</div>
 
@@ -75,19 +75,19 @@
 				<!-- precio-->
 				<div class="col col-sm-4 col-lg-4">
 					<span>
-						<font style="vertical-align: inherit;">S/.45.00</font>
+						<font style="vertical-align: inherit;" th:text="${carrito.PUnitario}"></font>
 					</span>
 				</div>
 
 				<!-- cantidad -->
 				<div class="col col-sm-4 col-lg-4">
-					<input type="number" value="1">
+					<input type="number" th:value="${carrito.cantidad}">
 				</div>
 
 
 				<div class="col col-sm-4 col-lg-4 text-right">
 					<span>
-						<font style="vertical-align: inherit;">S/.45.00</font>
+						<font style="vertical-align: inherit;" th:text="${carrito.total}"></font>
 					</span>
 				</div>
 			</div>
