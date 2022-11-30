@@ -1,10 +1,10 @@
 package com.puppie.puppie_love.Config;
 
 
-import com.puppie.puppie_love.Models.Cliente;
+import com.puppie.puppie_love.Models.Usuario;
 
 public interface UserService {
-    void save(Cliente cliente);
+    void save(Usuario cliente);
 
-    Cliente findByUsername(String username);
+    Usuario findByUsername(String username);
 }

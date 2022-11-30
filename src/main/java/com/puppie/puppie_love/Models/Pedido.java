@@ -1,6 +1,7 @@
 package com.puppie.puppie_love.Models;
 
 import lombok.Data;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -9,30 +10,32 @@ import java.sql.Date;
 @Table(name = "PEDIDOS")
 public class Pedido {
 
-	@Id
-	@Column(name = "idPedido", nullable = false)
-	private int idPedido;
+    @Id
+    @Column(name = "idPedido", nullable = false)
+    private int idPedido;
 
-	@ManyToOne
-	@JoinColumn(name = "codCliente", insertable = false, updatable = false)
-	private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name = "codUsuario", insertable = false, updatable = false)
+    private Usuario cliente;
 
-	@Column(name = "idSede")
-	private String idSede;
+    @Column(name = "idSede")
+    private String idSede;
 
-	@Column(name = "fech_pedido")
-	private Date fechaPedido;
 
-	@Column(name = "fech_aprox_entrega")
-	private Date fechaAproxEntrega;
+    @Column(name = "fech_pedido")
+    private Date fechaPedido;
 
-	@Column(name = "fech_envio")
-	private Date fechaEnvio;
+    @Column(name = "fech_aprox_entrega")
+    private Date fechaAproxEntrega;
 
-	@Column(name = "destinatario")
-	private String destinatario;
+    @Column(name = "fech_envio")
+    private Date fechaEnvio;
 
-	@Column(name = "direcDestinatario")
-	private String direccionDestinatario;
+    @Column(name = "destinatario")
+    private String destinatario;
+
+    @Column(name = "direcDestinatario")
+    private String direccionDestinatario;
+
 
 }
