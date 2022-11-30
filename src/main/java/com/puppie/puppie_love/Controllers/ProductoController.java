@@ -118,10 +118,9 @@ public class ProductoController {
         return nombre;
     }
     
-//    @GetMapping("car")
-//    public String carrito(Model model) {
-//        model.addAttribute("producto", new Producto());
-//        model.addAttribute("lstProductos", productoRepository.findAll());
-//        return "carrito";
-//    }
+    @GetMapping("detalleCompra")
+    public String carrito(Model model) {
+        model.addAttribute("producto", new Producto());
+        return "resumenCompra";
+    }
 }
