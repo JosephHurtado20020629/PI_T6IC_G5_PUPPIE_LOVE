@@ -31,7 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (usuario == null) throw new UsernameNotFoundException(username);
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(usuario.getRol().getDescripcion()));
-        usuario.setContraseña(bCryptPasswordEncoder.encode(usuario.getContraseña()));
-        return new org.springframework.security.core.userdetails.User(usuario.getUsername(),usuario.getContraseña(), grantedAuthorities);
+        usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
+        return new org.springframework.security.core.userdetails.User(usuario.getUsername(),usuario.getPassword(), grantedAuthorities);
     }
 }

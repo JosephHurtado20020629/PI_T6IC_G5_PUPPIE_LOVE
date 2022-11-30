@@ -23,22 +23,13 @@ public class Usuario {
     private String username;
 
     @Column(name = "password")
-    private String contraseña;
+    private String password;
 
     @ManyToOne
     @JoinColumn(name = "idRoles",insertable = false,updatable = false)
     private Rol rol;
-
-
-
-    public Usuario(int codUsuario, String nombre, String apellido, String username, String contraseña,
-                   String idRol) {
-        this.codUsuario = codUsuario;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.username = username;
-        this.contraseña = contraseña;
-    }
+    
+    private int idRoles;
 
     public Usuario() {
         // TODO Auto-generated constructor stub
