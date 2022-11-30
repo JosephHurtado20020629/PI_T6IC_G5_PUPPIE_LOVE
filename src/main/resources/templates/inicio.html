@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8"/>
@@ -146,7 +146,7 @@
                     <li><a th:href="@{/shop/S002}">Breña</a></li>
                     <li><a th:href="@{/shop/S003}">Miraflores</a></li>
                 </ul></li>
-				<li><a href="#" class="mantenimiento-btn"><i class="fas fa-store"></i>Mantenimiento
+				<li sec:authorize="hasAnyAuthority('Administrador')"><a href="#" class="mantenimiento-btn" ><i class="fas fa-store"></i>Mantenimiento
 						<span class="fas fa-caret-down third"></span> </a>
 					<ul class="mantenimiento-show">
 						<li><a href="/product/cargar">Productos</a></li>

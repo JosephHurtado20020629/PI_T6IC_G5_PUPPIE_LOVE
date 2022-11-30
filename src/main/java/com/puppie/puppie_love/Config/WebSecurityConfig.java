@@ -26,6 +26,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    @Autowired
+    LoginSuccessfulHandler loginSuccessfulHandler;
+
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -38,6 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/home",true)
                 .loginPage("/iniciar-sesion")
                 .loginProcessingUrl("/login")
+                .successHandler(loginSuccessfulHandler)
                 .usernameParameter("userName")
                 .passwordParameter("password")
                 .failureUrl("/iniciar-sesion?error")

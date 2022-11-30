@@ -2,15 +2,12 @@ package com.puppie.puppie_love.Controllers;
 
 import com.puppie.puppie_love.Models.DetallePedido;
 import com.puppie.puppie_love.Models.Producto;
-import com.puppie.puppie_love.Models.Usuario;
 import com.puppie.puppie_love.Repositorys.IDetallePedidosRepository;
 import com.puppie.puppie_love.Repositorys.IPedidosRepository;
 import com.puppie.puppie_love.Repositorys.IProductoRepository;
 import com.puppie.puppie_love.Repositorys.IUsuarioRepository;
 import com.puppie.puppie_love.Utils.ConstantsPage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,10 +37,6 @@ public class HomeController {
     public String index(Model model, HttpServletRequest request) {
         List<DetallePedido> listaPedidos = detallpedidosrepo.masVendidos();
         List<Producto> listaProductos = new ArrayList<>();
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Usuario usuario=usuarioRepository.findUsuarioByUsername(userDetails.getUsername());
-        request.getSession().setAttribute("cliente", usuario);
-        request.getSession().setAttribute("carrito",new ArrayList<DetallePedido>());
 
         if (!listaPedidos.isEmpty()) {
 

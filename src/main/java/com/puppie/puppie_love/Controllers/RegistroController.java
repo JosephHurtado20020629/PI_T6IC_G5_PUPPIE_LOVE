@@ -1,22 +1,20 @@
 package com.puppie.puppie_love.Controllers;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.puppie.puppie_love.Models.Usuario;
 import com.puppie.puppie_love.Repositorys.IRolesRepository;
 import com.puppie.puppie_love.Repositorys.IUsuarioRepository;
-
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 
 @Controller
-@RequestMapping(value="user")
+@RequestMapping(value="usuarios")
 public class RegistroController {
 	
 	@Autowired
