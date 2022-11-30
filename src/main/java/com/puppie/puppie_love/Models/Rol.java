@@ -2,7 +2,6 @@ package com.puppie.puppie_love.Models;
 
 
 import lombok.Data;
-import org.apache.catalina.User;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,6 +20,5 @@ public class Rol {
 
 	@Column(name = "descripcion")
     private String descripcion;
-
 
 }
