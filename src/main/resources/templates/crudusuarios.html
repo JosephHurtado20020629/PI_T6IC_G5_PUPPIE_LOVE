@@ -53,9 +53,9 @@
 			<div class="form-row">
 				<div class="form-group col-md-4">
 					<label for="inputRol">Rol</label>
-					<select id="inputRol" class="form-control" th:field="*{rol.idRol}">
+					<select id="inputRol" class="form-control" th:field="*{idRoles}">
 						<option value="-1"> Seleccione...</option>
-						<option th:each="r : ${lstRoles}" th:value="${r.idRol}" th:text="${r.descripcion}"></option>
+						<option th:each="r : ${lstRoles}" th:value="${r.idRoles}" th:text="${r.descripcion}"></option>
 					</select>
 				</div>
 			</div>

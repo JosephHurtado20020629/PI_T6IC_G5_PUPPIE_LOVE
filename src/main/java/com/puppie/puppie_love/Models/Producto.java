@@ -27,53 +27,7 @@ public class Producto {
     @Column(name = "stock")
     private int stock;
 
-	public String getIdProducto() {
-		return idProducto;
-	}
-
-	public void setIdProducto(String idProducto) {
-		this.idProducto = idProducto;
-	}
-
-	public String getNombreProducto() {
-		return nombreProducto;
-	}
-
-	public void setNombreProducto(String nombreProducto) {
-		this.nombreProducto = nombreProducto;
-	}
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
-	public String getIdCategoria() {
-		return idCategoria;
-	}
-
-	public void setIdCategoria(String idCategoria) {
-		this.idCategoria = idCategoria;
-	}
-
-	public double getPrecioUnidad() {
-		return precioUnidad;
-	}
-
-	public void setPrecioUnidad(double precioUnidad) {
-		this.precioUnidad = precioUnidad;
-	}
-
-	public int getStock() {
-		return stock;
-	}
-
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
+	
     
    
 }

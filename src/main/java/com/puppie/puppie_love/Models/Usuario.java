@@ -33,22 +33,24 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "idRoles",insertable = false,updatable = false)
     private Rol rol;
+    private int idRoles;
 
-    //private String idRol;
+    //private int idRol;
 
 
-    public Usuario(int codUsuario, String nombre, String apellido, String username, String contraseña,
-                   String idRol) {
-        this.codUsuario = codUsuario;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.username = username;
-        this.contraseña = contraseña;
-    }
-
-    public Usuario() {
-        // TODO Auto-generated constructor stub
-    }
+//    public Usuario(int codUsuario, String nombre, String apellido, String username, String contraseña,
+//                   int idRoles) {
+//        this.codUsuario = codUsuario;
+//        this.nombre = nombre;
+//        this.apellido = apellido;
+//        this.username = username;
+//        this.contraseña = contraseña;
+//        this.idRoles = idRoles;
+//    }
+//
+//    public Usuario() {
+//        // TODO Auto-generated constructor stub
+//    }
 
 
 }
