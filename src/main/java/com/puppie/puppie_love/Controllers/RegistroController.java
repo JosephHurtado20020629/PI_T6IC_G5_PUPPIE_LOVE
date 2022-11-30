@@ -23,7 +23,7 @@ public class RegistroController {
     private IRolesRepository repor;
 	
 	@Autowired
-	IUsuarioRepository repous;
+	private IUsuarioRepository repous;
 	
 	@GetMapping("cargar")
 	public String cargarForm(Model model) {
