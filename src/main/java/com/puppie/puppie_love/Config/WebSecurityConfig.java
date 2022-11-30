@@ -10,9 +10,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -33,7 +33,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/cliente/**").permitAll()
                 .antMatchers("/usuario/**").permitAll()
                 .antMatchers("/product/**").permitAll()
-                
                 .antMatchers("/detallepedido/listar").permitAll()
                 .antMatchers("/detalleproducto/listar").permitAll()
                 .antMatchers("/producto").permitAll()
@@ -50,6 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .failureUrl("/iniciar-sesion?error")
                 .and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()
                 .logout()
                 .logoutUrl("/logout").
                 logoutSuccessUrl("/iniciar-sesion")

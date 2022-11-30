@@ -1,6 +1,7 @@
 package com.puppie.puppie_love.Models;
 
 import lombok.Data;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -10,12 +11,12 @@ import java.sql.Date;
 public class Pedido {
 
     @Id
-    @Column(name = "idPedido",nullable = false)
+    @Column(name = "idPedido", nullable = false)
     private int idPedido;
 
     @ManyToOne
-    @JoinColumn(name = "codCliente",insertable = false,updatable = false)
-    private Cliente cliente;
+    @JoinColumn(name = "codUsuario", insertable = false, updatable = false)
+    private Usuario cliente;
 
     @Column(name = "idSede")
     private String idSede;
@@ -36,75 +37,5 @@ public class Pedido {
     @Column(name = "direcDestinatario")
     private String direccionDestinatario;
 
-    
-    
-    
-	public int getIdPedido() {
-		return idPedido;
-	}
-
-	public void setIdPedido(int idPedido) {
-		this.idPedido = idPedido;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-
-	public String getIdSede() {
-		return idSede;
-	}
-
-	public void setIdSede(String idSede) {
-		this.idSede = idSede;
-	}
-
-
-	public Date getFechaPedido() {
-		return fechaPedido;
-	}
-
-	public void setFechaPedido(Date fechaPedido) {
-		this.fechaPedido = fechaPedido;
-	}
-
-	public Date getFechaAproxEntrega() {
-		return fechaAproxEntrega;
-	}
-
-	public void setFechaAproxEntrega(Date fechaAproxEntrega) {
-		this.fechaAproxEntrega = fechaAproxEntrega;
-	}
-
-	public Date getFechaEnvio() {
-		return fechaEnvio;
-	}
-
-	public void setFechaEnvio(Date fechaEnvio) {
-		this.fechaEnvio = fechaEnvio;
-	}
-
-	public String getDestinatario() {
-		return destinatario;
-	}
-
-	public void setDestinatario(String destinatario) {
-		this.destinatario = destinatario;
-	}
-
-	public String getDireccionDestinatario() {
-		return direccionDestinatario;
-	}
-
-	public void setDireccionDestinatario(String direccionDestinatario) {
-		this.direccionDestinatario = direccionDestinatario;
-	}
-    
-    
 
 }
