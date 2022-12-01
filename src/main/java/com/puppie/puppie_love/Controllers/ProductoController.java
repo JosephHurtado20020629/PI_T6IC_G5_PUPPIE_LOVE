@@ -1,8 +1,6 @@
 package com.puppie.puppie_love.Controllers;
 
-import com.puppie.puppie_love.Models.Categoria;
-import com.puppie.puppie_love.Models.DetallePedido;
-import com.puppie.puppie_love.Models.Producto;
+import com.puppie.puppie_love.Models.*;
 import com.puppie.puppie_love.Repositorys.*;
 import com.puppie.puppie_love.Utils.Enums;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -163,7 +161,7 @@ public class ProductoController {
     }
 
 
-    /*@PostMapping("shop")
+    @PostMapping("shop")
     public ResponseEntity<?> shop(@RequestBody Pedido pedido, HttpServletRequest request) {
         List<DetallePedido> detallePedidos = (List<DetallePedido>) request.getSession().getAttribute("carrito");
         Usuario usuario = (Usuario) request.getSession().getAttribute("cliente");
@@ -172,10 +170,13 @@ public class ProductoController {
 
         pedidosRepository.save(pedido);
 
-        pedidosRepository.findBy()
-        for ()
-
-    }*/
+        int id = pedidosRepository.findByDireccionDestinatario(pedido.getDireccionDestinatario()).getIdPedido();
+        for (DetallePedido detallePedido : detallePedidos) {
+            detallePedido.setIdPedido(id);
+            detallePedidosRepository.save(detallePedido);
+        }
+        return ResponseEntity.ok().build();
+    }
 
     ;
 
