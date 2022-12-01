@@ -3,9 +3,7 @@ package com.puppie.puppie_love.Controllers;
 import com.puppie.puppie_love.Models.Categoria;
 import com.puppie.puppie_love.Models.DetallePedido;
 import com.puppie.puppie_love.Models.Producto;
-import com.puppie.puppie_love.Repositorys.ICategoriaRepository;
-import com.puppie.puppie_love.Repositorys.IProductoRepository;
-import com.puppie.puppie_love.Repositorys.IProveedorRepository;
+import com.puppie.puppie_love.Repositorys.*;
 import com.puppie.puppie_love.Utils.Enums;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +28,12 @@ public class ProductoController {
 
     @Autowired
     private IProductoRepository productoRepository;
+
+    @Autowired
+    private IPedidosRepository pedidosRepository;
+
+    @Autowired
+    private IDetallePedidosRepository detallePedidosRepository;
 
 
     @RequestMapping(value = "/{idCategory}", method = RequestMethod.GET)
@@ -113,6 +117,7 @@ public class ProductoController {
             if (Objects.nonNull(found)) {
                 int index = detalle.indexOf(found);
                 found.setCantidad(found.getCantidad() + 1);
+                found.setTotal(found.getTotal() + found.getPUnitario());
                 detalle.set(index, found);
             } else {
                 Producto product = productoRepository.findById(idProducto).orElse(null);
@@ -128,9 +133,10 @@ public class ProductoController {
     }
 
     @GetMapping("/cart")
-    public String cart(){
+    public String cart() {
         return "resumenCompra";
     }
+
     @ResponseBody
     @GetMapping("/delete-cart/{idProducto}")
     public ResponseEntity<?> deleteCart(@PathVariable("idProducto") String idProducto, HttpServletRequest request) {
@@ -145,6 +151,7 @@ public class ProductoController {
                 else {
                     int index = detalle.indexOf(found);
                     found.setCantidad(found.getCantidad() - 1);
+                    found.setTotal(found.getTotal() - found.getPUnitario());
                     detalle.set(index, found);
                     request.getSession().setAttribute("carrito", detalle);
                 }
@@ -155,6 +162,22 @@ public class ProductoController {
         }
     }
 
+
+    /*@PostMapping("shop")
+    public ResponseEntity<?> shop(@RequestBody Pedido pedido, HttpServletRequest request) {
+        List<DetallePedido> detallePedidos = (List<DetallePedido>) request.getSession().getAttribute("carrito");
+        Usuario usuario = (Usuario) request.getSession().getAttribute("cliente");
+
+        pedido.setCliente(usuario);
+
+        pedidosRepository.save(pedido);
+
+        pedidosRepository.findBy()
+        for ()
+
+    }*/
+
+    ;
 
     private String parseCategory(Integer idCategory) {
         String nombre = null;

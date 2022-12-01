@@ -2,120 +2,160 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Loves</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-	<link rel="shortcut icon" href="../icons/Favicon.svg" type="image/x-icon"/>
+    <title>Loves</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../icons/Favicon.svg" type="image/x-icon"/>
     <script src="../Js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="../Css/general2.css"/>
     <script src="../Js/general.js" defer></script>
+    <script src="../Js/resumenPedido.js" defer></script>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
 </head>
 
 <body>
 <header>
-	<nav th:insert="inicio :: nav">
-	</nav>
+    <nav th:insert="inicio :: nav">
+    </nav>
 </header>
-	<br><br>
-	<br><br>
+<br><br>
+<br><br>
 <div class="container">
-   <h1>Resumen de tu compra</h1>
-	    <br>
-	   
-<div class="container">
-	<form action="/cart" method="post" novalidate="">
-		<div class="row">
-			<div class="col-lg-12 col-xl-12">
-				<div class="border-bottom">
-					<div class="row">
-						<div class="d-none d-sm-block col-sm-5 col-lg-4 col-xl-7">
-							<label class="m-0">
-								<font style="vertical-align: inherit;">PRODUCTO</font>
-							</label>
-						</div>
-				
-						<div class="col-sm-7 col-lg-8 col-xl-5">
-							<div class="row">
-								<div class="col col-sm-4 col-lg-4">
-									<label class="m-0">
-										<font style="vertical-align: inherit;">PRECIO</font>
-									</label>
-								</div>
-				
-								<div class="col col-sm-4 col-lg-4 text-center text-lg-left">
-									<label class="m-0">
-										<font style="vertical-align: inherit;">CANTIDAD</font>
-									</label>
-								</div>
-				
-								<div class="col col-sm-4 col-lg-4 text-right">
-									<label class="m-0">
-										<font style="vertical-align: inherit;">TOTAL</font>
-									</label>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- contenido -->
-<div class="border-bottom">
-	<div class="row d-flex align-items-center flex-column flex-sm-row" th:each="carrito :${session.carrito}">
-		<div class="col-sm-5 col-lg-4 col-xl-7 d-flex align-items-center">
-		<div id="imgDetalle">
-			<img th:src="@{${'../img/' + carrito.producto.idProducto + '.png'}}">
-		</div>
-		</div>
+    <h1>Resumen de tu compra</h1>
+    <br>
 
-		<div class="col-sm-7 col-lg-8 col-xl-5">
-			<div class="row d-flex align-items-center">
+    <div class="container">
+        <form action="/shop" method="post" novalidate="">
+            <div class="row">
+                <div class="col-lg-12 col-xl-12">
+                    <div class="border-bottom">
+                        <div class="row">
+                            <div class="d-none d-sm-block col-sm-5 col-lg-4 col-xl-7">
+                                <label class="m-0">
+                                    <font style="vertical-align: inherit;">PRODUCTO</font>
+                                </label>
+                            </div>
 
-				<!-- precio-->
-				<div class="col col-sm-4 col-lg-4">
+                            <div class="col-sm-7 col-lg-8 col-xl-5">
+                                <div class="row">
+                                    <div class="col col-sm-4 col-lg-4">
+                                        <label class="m-0">
+                                            <font style="vertical-align: inherit;">PRECIO</font>
+                                        </label>
+                                    </div>
+
+                                    <div class="col col-sm-4 col-lg-4 text-center text-lg-left">
+                                        <label class="m-0">
+                                            <font style="vertical-align: inherit;">CANTIDAD</font>
+                                        </label>
+                                    </div>
+
+                                    <div class="col col-sm-4 col-lg-4 text-right">
+                                        <label class="m-0">
+                                            <font style="vertical-align: inherit;">TOTAL</font>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- contenido -->
+                    <div class="border-bottom">
+                        <div class="row d-flex align-items-center flex-column flex-sm-row"
+                             th:each="carrito :${session.carrito}">
+                            <div class="col-sm-5 col-lg-4 col-xl-7 d-flex align-items-center">
+                                <div id="imgDetalle">
+                                    <img th:src="@{${'../img/' + carrito.producto.idProducto + '.png'}}">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-7 col-lg-8 col-xl-5">
+                                <div class="row d-flex align-items-center">
+
+                                    <!-- precio-->
+                                    <div class="col col-sm-4 col-lg-4">
 					<span>
 						<font style="vertical-align: inherit;" th:text="${carrito.PUnitario}"></font>
 					</span>
-				</div>
+                                    </div>
 
-				<!-- cantidad -->
-				<div class="col col-sm-4 col-lg-4">
-					<div class="count">
-						<button id="btn-minus"><i class="fa fa-minus"></i></button>
-						<input type="text" th:value="${carrito.cantidad}">
-						<button id="btn-plus"><i class="fa fa-plus"></i></button>
-					</div>
-				</div>
+                                    <!-- cantidad -->
+                                    <div class="col col-sm-4 col-lg-4">
+                                        <div class="count">
+                                            <button type="button" class="btn-minus"
+                                                    th:value="${carrito.producto.idProducto}"><i
+                                                    class="fa fa-minus"></i></button>
+                                            <input class="cant-product" type="text" th:value="${carrito.cantidad}"
+                                                   disabled>
+                                            <button type="button" class="btn-plus"
+                                                    th:value="${carrito.producto.idProducto}"><i
+                                                    class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
 
 
-				<div class="col col-sm-4 col-lg-4 text-right">
+                                    <div class="col col-sm-4 col-lg-4 text-right">
 					<span>
 						<font style="vertical-align: inherit;" th:text="${carrito.total}"></font>
 					</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <a class="return" th:href="@{/home}">Continuar comprando</a>
+
+
+            <h2>
+                Detalles de entrega
+            </h2>
+
+            <label for="direccion">
+                Direccion
+                <input id="direccion" name="direccion">
+            </label>
+            <label for="idSede">
+                <select id="idSede" name="idSede">
+                    <option value="S001">PuppiesLove-San Miguel</option>
+                    <option value="S002">PuppiesLove-Breña</option>
+                    <option value="S003">PuppiesLove-Miraflores</option>
+                </select>
+            </label>
+            <button type="button" id="bnt-comprar" style="display: block;
+             width: 100%;
+             height: 46px;
+             border-radius: 25px;
+             outline: none;
+             border: none;
+             background-image: linear-gradient(to right, #a04e4e, #E44949, #D92109);
+             background-size: 200%;
+             font-size: 1.2rem;
+             color: #fff;
+             font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: 1s;">Comprar
+            </button>
+        </form>
+    </div>
 
 </div>
-</div>
-<br>
-      <a class="return" th:href="@{/home}">Continuar comprando</a>
-</form>
-</div>
-      
-</div>
 
-	<div th:replace="inicio :: footer"></div>
+<div th:replace="inicio :: footer"></div>
 
-	<script>
-		var ruta = "../";
-	</script>
+<script>
+    var ruta = "../";
+</script>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
