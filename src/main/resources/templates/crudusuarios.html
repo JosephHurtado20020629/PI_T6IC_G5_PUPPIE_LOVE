@@ -67,7 +67,9 @@
 			<a href="/usuario/listar" class="btn btn-primary">Listado</a>
 
 			<a href="/home" class="btn btn-primary">Regresar</a>
-		</form>
+			
+		</form>  
+		
 		<br>
 		<div th:if="${successful}  != null" class="alert alert-success" role="alert" th:text="${successful}"></div>
 		<div th:if="${error}  != null" class="alert alert-danger" role="alert" th:text="${error}"></div>

@@ -42,7 +42,7 @@
                     <input type="password" id="password"  name="password" class="input" autocomplete="off" required="true"/>
                 </div>
             </div>
-            
+             
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <button type="submit" class="btn" value="login">Ingresar</button>
             <a  class="btn" style="text-decoration: none;padding: 4%" th:href="@{/usuarios/cargar}">Registrar</a>
